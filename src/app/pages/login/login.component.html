@@ -1,28 +1,30 @@
 <form>
    <div class="grid grid-cols-12 p-0 m-0">
-      <div class="col-span-4 h-[100vh] flex flex-col items-center justify-center p-4">
+      <div class="col-span-4 h-[100vh] flex flex-col items-center pt-[15%] p-4">
          <div class="welcome-container flex flex-col gap-2">
             <h1 class="welcome-text">Bem-vindo</h1>
             <h4 class="sign-up-text text-center">Entre com a sua conta</h4>
          </div>
-         <div class="form-container">
-            <div class="flex flex-col">
-               <mat-label>E-mail</mat-label>
-               <mat-form-field appearance="outline">
-                  <input matInput>
+         <div class="flex flex-col w-full mt-[10%]">
+               <mat-form-field >
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="user@gmail.com" />
                </mat-form-field>
-            </div>
-            <div class="flex flex-col">
-               <mat-label>Senha</mat-label>
-               <mat-form-field appearance="outline">
-                  <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-                  <!-- <mat-icon matPrefix>vpn_key</mat-icon> -->
-                  <button class="px-3" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                     [attr.aria-pressed]="hide">
+
+               <mat-form-field>
+                  <mat-label>Coloque a sua senha</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'">
+                  <button type="button" mat-icon-button matSuffix (click)="toggleHide()">
                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
                </mat-form-field>
-            </div>
+               <div class="flex justify-between items-center">
+                  <mat-checkbox class="ml-[10%]">Lembrar de mim</mat-checkbox>
+                  <p class="mr-[10%!important]">Esqueci a senha</p>
+               </div>
+
+               <button class="bg-[#1B4588] w-[80%] block mx-auto h-[56px] text-white mt-20 rounded-[10px] cursor-pointer">ENTRAR</button>
+
          </div>
       </div>
       <div class="col-span-8 hidden sm:block"></div>
