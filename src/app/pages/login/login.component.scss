@@ -2,7 +2,7 @@
 .welcome-container {
 
    .welcome-text {
-      font-size: 72px;
+      font-size: 60px;
    }
 
    .sign-up-text {
@@ -11,36 +11,25 @@
 }
 
 .col-span-4 {
-   background-color: #fff;
+   background-color: #fcfdff;
    width: 100%;
-   border-right: 1px solid black;
 }
 
-.col-span-8 {
+.banner {
    background: url('/assets/img/login_background.jpg');
-   background-size: cover;
-}
-
-::ng-deep .mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper {
-   // border: 1px solid black !important;
-   padding: 0 5px;
-   display: block;
-}
-::ng-deep .mat-mdc-text-field-wrapper {
-   // border: 1px solid black !important;
-   background-color: #F4F4F4 !important;
-   padding: 0 5px !important;
-   display: block;
-   border-radius: 10px !important;
-}
-
-::ng-deep mat-form-field{
-   display: block;
-   width: 80%;
-   margin: 0 auto;
-   padding: 5px;
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center;
 }
 
 ::ng-deep .mdc-line-ripple {
    display: none
- }
+}
+
+::ng-deep .mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper {
+   padding: 0 16px !important;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper {
+   border-radius: 6px !important;
+}
