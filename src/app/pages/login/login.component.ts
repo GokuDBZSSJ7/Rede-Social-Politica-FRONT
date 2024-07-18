@@ -9,6 +9,7 @@ import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from '../../services/auth.service';
 import { AuthGuard } from '../../guards/auth.guard';
 import { Router, RouterModule } from '@angular/router';
+import { SidemenuComponent } from '../../shared/sidemenu/sidemenu.component';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ import { Router, RouterModule } from '@angular/router';
     MatIconModule,
     MatCheckboxModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    SidemenuComponent
   ],
   providers: [AuthService],
   templateUrl: './login.component.html',
