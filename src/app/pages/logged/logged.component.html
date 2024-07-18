@@ -1,1 +1,13 @@
-<p>logged works!</p>
+<ngx-spinner type="ball-clip-rotate" [fullScreen]="true" size="large" color="#fff"><h2 style="color: white;">Carregando...</h2></ngx-spinner>
+
+<mat-sidenav-container class="sidenav-container" fxFlexFill style="overflow: visible;">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        >
+        <app-sidemenu></app-sidemenu>
+    </mat-sidenav>
+    <mat-sidenav-content style="overflow: visible;">
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
