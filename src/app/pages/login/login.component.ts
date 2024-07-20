@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit{
     this.authService.login(this.form.value).subscribe({
       next: () => {
         this.spinner.hide(); 
-        // this.router.navigate(['/feed']);
+        this.router.navigate(['/feed']);
       },
       error: (err) => {
         this.errorMsg = err.error.message;
