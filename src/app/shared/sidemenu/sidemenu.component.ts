@@ -146,6 +146,20 @@ export class SidemenuComponent implements OnInit {
         route: '/'
       }
     ]
+  },
+  {
+    title: 'Menu',
+    contentMenus: [
+      {
+        label: 'Sair',
+            route: '/',
+            classPanel: 'logout-btn',
+            handler: () => {
+              console.log('Logout handler called');
+              this.logout();
+            }
+      }
+    ]
   }];
 
   constructor(
@@ -167,13 +181,6 @@ export class SidemenuComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout().subscribe({
-      next: () => {
-        console.log('Usuário deslogado com sucesso!');
-      },
-      error: (error) => {
-        console.error('Erro ao realizar logout:', error);
-      },
-    });
+    this.authService.logout();
   }
 }

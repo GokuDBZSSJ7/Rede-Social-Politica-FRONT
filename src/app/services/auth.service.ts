@@ -16,33 +16,20 @@ export class AuthService {
 
   login(data: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}auth/login`, data).pipe(
-      tap(response => {
-        localStorage.setItem('access_token', response.access_token);
-        localStorage.setItem('user', JSON.stringify(response.user));
-      })
-    );
-  }
-
-  logout(): Observable<any> {
-    const token = this.getToken();
-    if (token) {
-      const headers = new HttpHeaders({
-        Authorization: `Bearer ${token}`
-      });
-
-      return this.http.post(`${this.apiUrl}logout`, {}, { headers }).pipe(
-        tap(() => {
-          localStorage.removeItem('access_token');
-          localStorage.removeItem('user');
+        tap(response => {
+            localStorage.setItem('access_token', response.access_token);
+            localStorage.setItem('user', JSON.stringify(response.user));
         })
-      );
-    } else {
-      return new Observable(observer => {
-        observer.next();
-        observer.complete();
-      });
-    }
-  }
+    );
+}
+
+logout() {
+  return this.http.post<any>(`${this.apiUrl}/auth/logout`, {}).subscribe(() => {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('user');
+    // this.router.navigate(['/login']);
+  });
+}
 
   getUser(): any {
     const userString = localStorage.getItem('user');
