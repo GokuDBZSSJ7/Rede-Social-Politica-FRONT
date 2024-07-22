@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { catchError, Observable, of, tap } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class AuthService {
   login(data: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}auth/login`, data).pipe(
         tap(response => {
-            localStorage.setItem('access_token', response.access_token);
+            localStorage.setItem('authToken', response.access_token);
             localStorage.setItem('user', JSON.stringify(response.user));
         })
     );
@@ -25,10 +26,13 @@ export class AuthService {
 
 logout() {
   return this.http.post<any>(`${this.apiUrl}/auth/logout`, {}).subscribe(() => {
-    localStorage.removeItem('access_token');
+    localStorage.removeItem('authToken');
     localStorage.removeItem('user');
     // this.router.navigate(['/login']);
   });
+}
+refresh(): Observable<any> {
+  return this.http.post<any>(`${this.apiUrl}auth/refresh`, {});
 }
 
   getUser(): any {
@@ -36,8 +40,34 @@ logout() {
     return userString ? JSON.parse(userString) : null;
   }
 
+  destroyToken() {
+    localStorage.removeItem('authToken');
+  }
+
+  setToken(token: any, rememberMe: boolean) {
+    const jwt: any = jwtDecode(token.access_token)
+    const expires = new Date(jwt['exp'] * 1000);
+    token = { ...token, expires, rememberMe };
+    if (rememberMe) {
+      localStorage.setItem('authToken', JSON.stringify(token));
+    } else {
+      localStorage.setItem('authToken', JSON.stringify(token));
+    }
+  }
+
+  me(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}auth/me`, {});
+  }
+
+  setUser(): Observable<any> {
+    return this.me().pipe(
+      tap(user => localStorage.setItem('user', JSON.stringify(user))),
+      catchError(() => of(null))
+    );
+  }
+
   getToken(): string | null {
-    return localStorage.getItem('access_token');
+    return localStorage.getItem('authToken');
   }
 
   isAuthenticated(): boolean {
