@@ -8,7 +8,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from '../../services/auth.service';
 import { AuthGuard } from '../../guards/auth.guard';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { SidemenuComponent } from '../../shared/sidemenu/sidemenu.component';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,9 @@ import { Router } from '@angular/router';
     MatInputModule,
     MatIconModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule,
+    SidemenuComponent
   ],
   providers: [AuthService],
   templateUrl: './login.component.html',
@@ -57,7 +60,7 @@ export class LoginComponent implements OnInit{
     this.authService.login(this.form.value).subscribe({
       next: () => {
         this.spinner.hide(); 
-        // this.router.navigate(['/feed']);
+        this.router.navigate(['/feed']);
       },
       error: (err) => {
         this.errorMsg = err.error.message;

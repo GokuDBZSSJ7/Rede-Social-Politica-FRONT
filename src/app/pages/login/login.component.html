@@ -1,18 +1,15 @@
 <div class="grid grid-cols-12 p-0 m-0 h-screen">
    <div class="col-span-12 xl:col-span-4 flex flex-col items-center justify-center p-8 md:p-12">
-      <!-- Welcome and Sign up Text -->
       <div class="welcome-container flex flex-col gap-2">
          <h1 class="welcome-text text-center">Bem-vindo</h1>
          <h4 class="sign-up-text text-center">Entre com a sua conta</h4>
       </div>
       <form class="w-full" [formGroup]="form">
          <div class="flex flex-col w-full mt-[10%]">
-            <!-- E-mail Form Field -->
             <label class="pb-1 text-[16px]">E-mail</label>
             <mat-form-field class="rounded-lg">
-               <input matInput formControlName="email"/>
+               <input matInput  formControlName="email"/>
             </mat-form-field>
-            <!-- Password Form Field -->
             <label class="pb-1 text-[16px]">Senha</label>
             <mat-form-field class="rounded-lg">
                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
@@ -20,17 +17,20 @@
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                </button>
             </mat-form-field>
-            <!-- Checkbox and Forgot Password -->
             <div class="flex justify-between items-center">
                <mat-checkbox color="primary">Lembrar de mim</mat-checkbox>
                <p class="flex items-center text-[14px]" style="margin-bottom: 0;">Esqueci a senha</p>
             </div>
-            <!-- Login Button -->
-            <button class="bg-[#1B4588] hover:bg-[#163970] transition w-full block mx-auto h-[56px] text-white mt-20 rounded-[10px] cursor-pointer text-[18px]" (click)="login()">
+            <button type="button"
+               class="bg-[#1B4588] hover:bg-[#163970] transition w-full block mx-auto h-[56px] text-white mt-20 rounded-[10px] cursor-pointer text-[18px]" (click)="login()">
                ENTRAR
             </button>
+            <p class="pt-3">Não tem uma conta? <span class="text-[#1B4588] font-bold cursor-pointer"
+                  routerLink="/register">Crie aqui!</span></p>
          </div>
       </form>
    </div>
    <div class="banner hidden md:col-span-8 xl:flex items-center justify-center bg-gray-100"></div>
 </div>
+
+<!-- <app-sidemenu></app-sidemenu> -->

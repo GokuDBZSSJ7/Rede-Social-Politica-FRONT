@@ -1,0 +1,43 @@
+<mat-menu></mat-menu>
+
+<div class="fuse-vertical-navigation-wrapper sidemenu">
+   <div class="flex items-center justify-center w-full p-3">
+      <div class="">
+         <h1 class="m-0 py-5" style="margin: 0;">System</h1>
+      </div>
+   </div>
+
+   <div>
+      @for (menu of menus; track menu) {
+      <div class="mt-2">
+         <div class="mx-2.5">
+            <div class="menu-title-alignment">
+               <div class="fuse-vertical-navigation-item-title-wrapper">
+                  <div class="fuse-vertical-navigation-item-title">
+                     <div class="menu-title">
+                        <span>{{ menu.title }}</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div style="margin: 0 10px 4px 10px; font-size: 16px;">
+         @for (submenu of menu.contentMenus; track submenu) {
+            @if (!submenu.handler) {
+               <button mat-menu-item [routerLink]="submenu.route" routerLinkActive="active">
+                  <mat-icon [svgIcon]="submenu.icon" aria-hidden="false"></mat-icon>
+                  <span>{{ submenu.label }}</span>
+               </button>
+            }
+            @if (submenu.handler) {
+               <button mat-menu-item [routerLink]="submenu.route" [class]="submenu.classPanel">
+                  <span>{{ submenu.label }}</span>
+               </button>
+            }
+         }
+      </div>
+      }
+   </div>
+</div>
