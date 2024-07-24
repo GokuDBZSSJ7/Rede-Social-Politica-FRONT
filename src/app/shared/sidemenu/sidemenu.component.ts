@@ -71,6 +71,11 @@ const CHECK_CIRCLE_ICON =
 <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M422-297.33 704.67-580l-49.34-48.67L422-395.33l-118-118-48.67 48.66L422-297.33ZM480-80q-82.33 0-155.33-31.5-73-31.5-127.34-85.83Q143-251.67 111.5-324.67T80-480q0-83 31.5-156t85.83-127q54.34-54 127.34-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82.33-31.5 155.33-31.5 73-85.5 127.34Q709-143 636-111.5T480-80Z"/></svg>
 `
 
+const LOGOUT_ICON =
+  `
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/></svg>
+`
+
 @Component({
   selector: 'app-sidemenu',
   standalone: true,
@@ -114,6 +119,16 @@ export class SidemenuComponent implements OnInit {
         label: 'Partidos',
         icon: 'flag_icon',
         route: '/'
+      },
+      {
+        label: 'Sair',
+        icon: 'logout_icon',
+        route: '/',
+        classPanel: 'logout-btn',
+        handler: () => {
+          console.log('Logout handler called');
+          this.logout();
+        }
       }
     ],
   },
@@ -147,20 +162,7 @@ export class SidemenuComponent implements OnInit {
       }
     ]
   },
-  {
-    title: 'Menu',
-    contentMenus: [
-      {
-        label: 'Sair',
-            route: '/',
-            classPanel: 'logout-btn',
-            handler: () => {
-              console.log('Logout handler called');
-              this.logout();
-            }
-      }
-    ]
-  }];
+  ];
 
   constructor(
     private authService: AuthService,
@@ -174,6 +176,7 @@ export class SidemenuComponent implements OnInit {
     iconRegistry.addSvgIconLiteral('flag_icon', sanitizer.bypassSecurityTrustHtml(FLAG_ICON));
     iconRegistry.addSvgIconLiteral('role_icon', sanitizer.bypassSecurityTrustHtml(ROLE_ICON));
     iconRegistry.addSvgIconLiteral('check_circle_icon', sanitizer.bypassSecurityTrustHtml(CHECK_CIRCLE_ICON));
+    iconRegistry.addSvgIconLiteral('logout_icon', sanitizer.bypassSecurityTrustHtml(LOGOUT_ICON));
   }
 
   ngOnInit(): void {

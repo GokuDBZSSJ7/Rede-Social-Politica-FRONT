@@ -1,1 +1,178 @@
-<p>feed works!</p>
+<div class="container mx-auto">
+   <div class="flex flex-wrap">
+      <!-- Sidebar Left -->
+      <div class="w-full md:w-1/4 p-2">
+         <div class="bg-white shadow rounded-lg p-4 text-center">
+            <img src="/assets/img/test-images/old-man.png" alt="Profile Picture"
+               class="rounded-full w-[96px] h-[96px] border-[3px] border-gray-200 mx-auto mb-3 object-cover object-center">
+            <p class="font-medium text-base pb-1">Nome usuário</p>
+            <p>Cargo • Cidade, UF</p>
+            <button class="btn font-medium pt-3 text-blue-900 hover:text-blue-950">Ver perfil</button>
+            <!-- <img src="https://via.placeholder.com/100" alt="Profile" class="w-30 h-24 rounded-full mx-auto mb-2">
+            <h5 class="text-lg font-semibold">Lucas Baggio</h5>
+            <p class="text-gray-600">Governador • São Paulo, SP</p>
+            <a href="#" class="btn btn-primary mt-3 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Ver perfil</a> -->
+         </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="w-full flex flex-col md:w-1/2 p-2 gap-3">
+         <!-- Add Comment Box -->
+         <div class="bg-white shadow rounded-lg">
+            <button class="flex items-center gap-2 hover:bg-gray-50 w-full p-4" style="color: #686868 !important;">
+               <mat-icon
+                  style="width: 32px !important; height: 32px !important; font-size: 32px;">edit_square</mat-icon>
+               <p class="text-base">Iniciar postagem</p>
+            </button>
+         </div>
+
+         <!-- Post 1 -->
+         <div class="post bg-white shadow rounded-lg p-4 mb-3">
+            <div class="user flex">
+               <div class="user-picture me-2 pb-3">
+                  <img src="/assets/img/test-images/old-man.png" alt="Profile Picture"
+                     class="rounded-full w-[64px] h-[64px] border-[2px] border-gray-200 object-cover object-center">
+               </div>
+               <div class="">
+                  <p class="text-base font-semibold">Nome usuário</p>
+                  <p class="text-sm font-normal text-gray-600 mb-2">Candidato • Cargo</p>
+                  <p class="text-xs font-light">Há 2 horas</p>
+               </div>
+            </div>
+
+            <div class="post-text">
+               <p class="text-gray-800 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                  Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                  galley of type and scrambled it to make a type text ever since unknown wh...
+                  <button class="font-medium text-blue-800 hover:text-blue-900">ver mais</button>
+               </p>
+            </div>
+
+            <div class="post-midia">
+               <img src="https://via.placeholder.com/600x390" alt="Post Image" class="w-full my-3">
+            </div>
+
+            <p class="text-gray-600 pb-3">4.324 curtidas • 2.362 comentários</p>
+
+              <mat-divider></mat-divider>
+
+            <div class="post-actions flex gap-3 mt-3">
+               <div class="like">
+                  <button class="flex items-center gap-2 text-gray-600">
+                     <mat-icon>thumb_up</mat-icon>
+                     Curtir
+                  </button>
+               </div>
+               <div class="comment">
+                  <button class="flex items-center gap-2 text-gray-600">
+                     <mat-icon>chat</mat-icon>
+                     Comentar
+                  </button>
+               </div>
+               <div class="share">
+                  <button class="flex items-center gap-2 text-gray-600">
+                     <mat-icon>share_windows</mat-icon>
+                     Compartilhar
+                  </button>
+               </div>
+            </div>
+         </div>
+
+         <!-- Post 2 -->
+         <div class="post bg-white shadow rounded-lg p-4 mb-3">
+            <div class="user flex">
+               <div class="user-picture me-2 pb-3">
+                  <img src="/assets/img/test-images/old-man.png" alt="Profile Picture"
+                     class="rounded-full w-[64px] h-[64px] border-[2px] border-gray-200 object-cover object-center">
+               </div>
+               <div class="">
+                  <p class="text-base font-semibold">Nome usuário</p>
+                  <p class="text-sm font-normal text-gray-600 mb-2">Candidato • Cargo</p>
+                  <p class="text-xs font-light">Há 2 horas</p>
+               </div>
+            </div>
+
+            <div class="post-text">
+               <p class="text-gray-800 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                  Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                  galley of type and scrambled it to make a type text ever since unknown wh...
+                  <button class="font-medium text-blue-800 hover:text-blue-900">ver mais</button>
+               </p>
+            </div>
+
+            <div class="post-midia">
+               <img src="https://via.placeholder.com/600x390" alt="Post Image" class="w-full my-3">
+            </div>
+
+            <p class="text-gray-600 pb-3">4.324 curtidas • 2.362 comentários</p>
+
+              <mat-divider></mat-divider>
+
+            <div class="post-actions flex gap-3 mt-3">
+               <div class="like">
+                  <button class="flex items-center gap-2 text-gray-600">
+                     <mat-icon>thumb_up</mat-icon>
+                     Curtir
+                  </button>
+               </div>
+               <div class="comment">
+                  <button class="flex items-center gap-2 text-gray-600">
+                     <mat-icon>chat</mat-icon>
+                     Comentar
+                  </button>
+               </div>
+               <div class="share">
+                  <button class="flex items-center gap-2 text-gray-600">
+                     <mat-icon>share_windows</mat-icon>
+                     Compartilhar
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Sidebar Right -->
+      <div class="w-full md:w-1/4 p-3">
+         <div class="bg-white shadow rounded-lg">
+            <div class="px-3 py-4 text-lg font-bold border-b">
+               Notícias da semana
+            </div>
+            <ul class="divide-y divide-gray-200">
+               <li class="font-medium px-3 py-4">
+                  Lorem Ipsum is dummy text of the printi...
+                  <span class="text-gray-400 font-normal">
+                     34 minutos atrás • 432 menções
+                  </span>
+               </li>
+               <li class="font-medium px-3 py-4">
+                  Lorem Ipsum is dummy text of the printi...
+                  <span class="text-gray-400 font-normal">
+                     48 minutos atrás • 712 menções
+                  </span>
+               </li>
+               <li class="font-medium px-3 py-4">
+                  Lorem Ipsum is dummy text of the printi...
+                  <span class="text-gray-400 font-normal">
+                     1 hora atrás • 862 menções
+                  </span>
+               </li>
+               <li class="font-medium px-3 py-4">
+                  Lorem Ipsum is dummy text of the printi...
+                  <span class="text-gray-400 font-normal">
+                     1h14m atrás • 1.036 menções
+                  </span>
+               </li>
+               <li class="font-medium px-3 py-4">
+                  Lorem Ipsum is dummy text of the printi...
+                  <span class="text-gray-400 font-normal">
+                     1h26m atrás • 1.258 menções
+                  </span>
+               </li>
+            </ul>
+            <div class="border-t px-3 py-4 text-center">
+               <a href="#" class="text-blue-500 hover:underline">Ver mais</a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
