@@ -33,6 +33,7 @@
             }
             @if (submenu.handler) {
                <button mat-menu-item [routerLink]="submenu.route" [class]="submenu.classPanel">
+                  <mat-icon [svgIcon]="submenu.icon" aria-hidden="false"></mat-icon>
                   <span>{{ submenu.label }}</span>
                </button>
             }
