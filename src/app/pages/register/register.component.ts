@@ -8,6 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -52,14 +53,26 @@ export class RegisterComponent {
     });
   }
 
-  login() {
+  register() {
     this.spinner.show(); 
     this.authService.register(this.form.value).subscribe({
       next: () => {
         this.spinner.hide(); 
-        // this.router.navigate(['/feed']);
+        Swal.fire({
+          icon: "success",
+          title: "Registro feito com sucesso",
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.router.navigate(['/login']);
       },
       error: (err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Falha ao tentar registrar",
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.errorMsg = err.error.message;
         this.spinner.hide(); 
       },
