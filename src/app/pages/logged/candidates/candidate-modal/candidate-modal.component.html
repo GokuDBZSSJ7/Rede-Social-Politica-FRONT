@@ -1,0 +1,77 @@
+<main class="container mx-auto px-8 py-8">
+    <h1>Solicitar Aprovação para Candidato</h1>
+    <div class="filter grid grid-cols-12 mt-7 container gap-5">
+        <div class="col-span-8">
+            <label for="city">Nome Completo</label>
+            <input type="text" class="container px-3 h-12 input" placeholder="Nome">
+        </div>
+        <div class="col-span-4">
+            <label for="city">Data de Nascimento</label>
+            <input type="date" class="container px-3 h-12 input">
+        </div>
+        <div class="col-span-6">
+            <label for="city">Email</label>
+            <input type="text" class="container px-3 h-12 input" placeholder="Email">
+        </div>
+        <div class="col-span-3">
+            <label for="city">Gênero</label>
+            <select class=" container px-3 h-12 input">
+                <option value="" selected disabled></option>
+                <option value="">Masculino</option>
+                <option value="">Feminino</option>
+            </select>
+        </div>
+        <div class="col-span-3">
+            <label for="city">Telefone</label>
+            <input type="text" class="container px-3 h-12 input" placeholder="Telefone">
+        </div>
+        <div class="col-span-4">
+            <label for="city">Estado</label>
+            <select class=" container px-3 h-12 input" [(ngModel)]="selectedStateId" (change)="onStateChange()">
+                <option value="" selected disabled></option>
+                @for(state of states; track state) {
+                    <option [value]="state.id" >{{state.name}} - {{state.uf}}</option>
+                }
+            </select>
+        </div>
+        <div class="col-span-8">
+            <label for="city">Cidade</label>
+            <select class=" container px-3 h-12 input" [disabled]="selectedStateId == null">
+                @for(city of cities; track city) {
+                    <option value="" >{{city.name}}</option>
+                }
+            </select>
+        </div>
+        <div class="col-span-6">
+            <label for="city">Partido</label>
+            <select class=" container px-3 h-12 input">
+                <option value="" selected disabled></option>
+                @for(party of parties; track party) {
+                    <option value="" >{{party.name}} - {{party.acronym}}</option>
+                }
+            </select>
+        </div>
+        <div class="col-span-6">
+            <label for="city">Cargo</label>
+            
+            <select class=" container px-3 h-12 input">
+                <option value="" selected disabled></option>
+                @for(office of offices; track office) {
+                    <option value="" >{{office.name}}</option>
+                }
+            </select>
+        </div>
+        <div class="col-span-12">
+            <textarea class=" container px-3 py-1 h-32 input" placeholder="Experiência Politíca"></textarea>
+        </div>
+        <div class="col-span-12">
+            <mat-checkbox class="example-margin">Declaração de Concordância: Eu, [usuário], concordo com os termos e condições para me tornar um candidato/político neste sistema e me responsabilizo por cumprir todas as leis eleitorais aplicáveis, agir de acordo com os princípios éticos e morais da função pública e fornecer informações precisas e atualizadas durante todo o processo eleitoral.</mat-checkbox>
+        </div>
+
+        
+    </div>
+    <div class="flex items-center justify-between mt-10">
+        <button class="w-1/4 border-[2px] border-[#1B4588] text-[#1B4588] h-14 rounded-lg" [routerLink]="['/candidates']" routerLinkActive="router-link-active" >Cancelar</button>
+        <button class="w-1/4 bg-[#1B4588] text-white h-14 rounded-lg" >Solicitar</button>
+    </div>
+</main>

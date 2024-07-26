@@ -103,17 +103,17 @@ export class SidemenuComponent implements OnInit {
       {
         label: 'Feed',
         icon: 'feed_icon',
-        route: '/'
+        route: '/feed'
       },
       {
         label: 'Candidatos',
         icon: 'candidate_icon',
-        route: '/'
+        route: '/candidates'
       },
       {
         label: 'Campanhas',
         icon: 'candidate_speech_icon',
-        route: '/'
+        route: '/campaigns'
       },
       {
         label: 'Partidos',

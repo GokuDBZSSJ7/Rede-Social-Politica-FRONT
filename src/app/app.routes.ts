@@ -4,6 +4,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { FeedComponent } from './pages/logged/feed/feed.component';
+import { CandidatesComponent } from './pages/logged/candidates/candidates.component';
+import { CandidateModalComponent } from './pages/logged/candidates/candidate-modal/candidate-modal.component';
+import { CampaignsComponent } from './pages/logged/campaigns/campaigns.component';
 
 export const routes: Routes = [
    {
@@ -19,6 +22,18 @@ export const routes: Routes = [
          {
             path: 'feed',
             component: FeedComponent
+         },
+         {
+            path: 'candidates',
+            component: CandidatesComponent
+         },
+         {
+            path: 'candidate-creation',
+            component: CandidateModalComponent
+         },
+         {
+            path: 'campaigns',
+            component: CampaignsComponent
          }
       ]
    },
