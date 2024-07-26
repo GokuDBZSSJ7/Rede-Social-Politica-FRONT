@@ -10,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
 import { AuthGuard } from '../../guards/auth.guard';
 import { Router, RouterModule } from '@angular/router';
 import { SidemenuComponent } from '../../shared/sidemenu/sidemenu.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -60,6 +61,12 @@ export class LoginComponent implements OnInit{
     this.authService.login(this.form.value).subscribe({
       next: () => {
         this.spinner.hide(); 
+        Swal.fire({
+          icon: "success",
+          title: "Login feito com sucesso",
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.router.navigate(['/feed']);
       },
       error: (err) => {
