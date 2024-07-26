@@ -138,7 +138,7 @@ export class SidemenuComponent implements OnInit {
       {
         label: 'Partido',
         icon: 'flag_icon',
-        route: '/'
+        route: '/parties'
       },
       {
         label: 'Cargo',

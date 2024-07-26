@@ -7,6 +7,8 @@ import { FeedComponent } from './pages/logged/feed/feed.component';
 import { CandidatesComponent } from './pages/logged/candidates/candidates.component';
 import { CandidateModalComponent } from './pages/logged/candidates/candidate-modal/candidate-modal.component';
 import { CampaignsComponent } from './pages/logged/campaigns/campaigns.component';
+import { PartiesComponent } from './pages/logged/parties/parties.component';
+import { PartiesFormComponent } from './pages/logged/parties/parties-form/parties-form.component';
 
 export const routes: Routes = [
    {
@@ -34,6 +36,14 @@ export const routes: Routes = [
          {
             path: 'campaigns',
             component: CampaignsComponent
+         },
+         {
+            path: 'parties',
+            component: PartiesComponent
+         },
+         {
+            path: 'parties-creation',
+            component: PartiesFormComponent
          }
       ]
    },

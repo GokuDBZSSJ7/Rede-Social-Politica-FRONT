@@ -1,18 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
+import { StateService } from '../../../services/state.service';
+import { CityService } from '../../../services/city.service';
+import { PartyService } from '../../../services/party.service';
+import { OfficeService } from '../../../services/office.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { OfficeService } from '../../../../services/office.service';
-import { PartyService } from '../../../../services/party.service';
-import { CityService } from '../../../../services/city.service';
-import { StateService } from '../../../../services/state.service';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { AuthService } from '../../../../services/auth.service';
 
 @Component({
-  selector: 'app-candidate-modal',
+  selector: 'app-parties',
   standalone: true,
   imports: [
     MatFormFieldModule,
@@ -20,28 +18,23 @@ import { AuthService } from '../../../../services/auth.service';
     MatIconModule,
     ReactiveFormsModule,
     RouterModule,
-    FormsModule,
-    MatCheckboxModule
+    FormsModule
   ],
-  templateUrl: './candidate-modal.component.html',
-  styleUrl: './candidate-modal.component.scss'
+  templateUrl: './parties.component.html',
+  styleUrl: './parties.component.scss'
 })
-export class CandidateModalComponent implements OnInit {
-
+export class PartiesComponent {
   offices: any[] = []
   parties: any[] = []
   cities: any[] = []
   states: any[] = []
   selectedStateId: any;
 
-  user: any;
-
   constructor(
     private officeService: OfficeService,
     private partyService: PartyService,
     private cityService: CityService,
-    private stateService: StateService,
-    private authService: AuthService
+    private stateService: StateService
   ) { }
 
   ngOnInit(): void {
@@ -66,8 +59,6 @@ export class CandidateModalComponent implements OnInit {
         this.states = res
       }
     })
-
-    this.user = this.authService.getUser()
   }
 
   onStateChange(): void {
