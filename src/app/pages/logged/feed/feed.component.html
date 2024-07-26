@@ -27,108 +27,62 @@
          </div>
 
          <!-- Post 1 -->
+         @for(post of posts; track post) {
          <div class="post bg-white shadow rounded-lg p-4 mb-3">
-            <div class="user flex">
-               <div class="user-picture me-2 pb-3">
-                  <img src="/assets/img/test-images/old-man.png" alt="Profile Picture"
-                     class="rounded-full w-[64px] h-[64px] border-[2px] border-gray-200 object-cover object-center">
+               <div class="user flex">
+                  <div class="user-picture me-2 pb-3">
+                     <img src="/assets/img/test-images/old-man.png" alt="Profile Picture"
+                        class="rounded-full w-[64px] h-[64px] border-[2px] border-gray-200 object-cover object-center">
+                  </div>
+                  <div class="">
+                     <p class="text-base font-semibold">{{post?.user?.name}}</p>
+                     <p class="text-sm font-normal text-gray-600 mb-2">Candidato • Cargo</p>
+                     <p class="text-xs font-light">Há 2 horas</p>
+                  </div>
                </div>
-               <div class="">
-                  <p class="text-base font-semibold">Nome usuário</p>
-                  <p class="text-sm font-normal text-gray-600 mb-2">Candidato • Cargo</p>
-                  <p class="text-xs font-light">Há 2 horas</p>
+   
+               <div class="post-text">
+                  <p class="text-gray-800 text-justify">{{post.description}}
+                     <!-- <button class="font-medium text-blue-800 hover:text-blue-900">ver mais</button> -->
+                  </p>
                </div>
-            </div>
-
-            <div class="post-text">
-               <p class="text-gray-800 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                  Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                  galley of type and scrambled it to make a type text ever since unknown wh...
-                  <button class="font-medium text-blue-800 hover:text-blue-900">ver mais</button>
-               </p>
-            </div>
-
-            <div class="post-midia">
-               <img src="https://via.placeholder.com/600x390" alt="Post Image" class="w-full my-3">
-            </div>
-
-            <p class="text-gray-600 pb-3">4.324 curtidas • 2.362 comentários</p>
-
-              <mat-divider></mat-divider>
-
-            <div class="post-actions flex gap-3 mt-3">
-               <div class="like">
-                  <button class="flex items-center gap-2 text-gray-600">
-                     <mat-icon>thumb_up</mat-icon>
-                     Curtir
-                  </button>
+   
+               <div class="post-midia">
+                  <img [src]="post.image_url || 'https://via.placeholder.com/600x390'" alt="Post Image" class="w-full my-3">
                </div>
-               <div class="comment">
-                  <button class="flex items-center gap-2 text-gray-600">
-                     <mat-icon>chat</mat-icon>
-                     Comentar
-                  </button>
-               </div>
-               <div class="share">
-                  <button class="flex items-center gap-2 text-gray-600">
-                     <mat-icon>share_windows</mat-icon>
-                     Compartilhar
-                  </button>
-               </div>
-            </div>
-         </div>
-
-         <!-- Post 2 -->
-         <div class="post bg-white shadow rounded-lg p-4 mb-3">
-            <div class="user flex">
-               <div class="user-picture me-2 pb-3">
-                  <img src="/assets/img/test-images/old-man.png" alt="Profile Picture"
-                     class="rounded-full w-[64px] h-[64px] border-[2px] border-gray-200 object-cover object-center">
-               </div>
-               <div class="">
-                  <p class="text-base font-semibold">Nome usuário</p>
-                  <p class="text-sm font-normal text-gray-600 mb-2">Candidato • Cargo</p>
-                  <p class="text-xs font-light">Há 2 horas</p>
+   
+               <p class="text-gray-600 pb-3">4.324 curtidas • 2.362 comentários</p>
+   
+                 <mat-divider></mat-divider>
+   
+               <div class="post-actions flex gap-3 mt-3">
+                  <div class="like">
+                     <button class="flex items-center gap-2 text-gray-600">
+                        <mat-icon>thumb_up</mat-icon>
+                        Gostei
+                     </button>
+                  </div>
+                  <div class="like">
+                     <button class="flex items-center gap-2 text-gray-600">
+                        <mat-icon>thumb_down</mat-icon>
+                        Não gostei
+                     </button>
+                  </div>
+                  <div class="comment">
+                     <button class="flex items-center gap-2 text-gray-600">
+                        <mat-icon>chat</mat-icon>
+                        Comentar
+                     </button>
+                  </div>
+                  <!-- <div class="share">
+                     <button class="flex items-center gap-2 text-gray-600">
+                        <mat-icon>share_windows</mat-icon>
+                        Republicar
+                     </button>
+                  </div> -->
                </div>
             </div>
-
-            <div class="post-text">
-               <p class="text-gray-800 text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                  Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                  galley of type and scrambled it to make a type text ever since unknown wh...
-                  <button class="font-medium text-blue-800 hover:text-blue-900">ver mais</button>
-               </p>
-            </div>
-
-            <div class="post-midia">
-               <img src="https://via.placeholder.com/600x390" alt="Post Image" class="w-full my-3">
-            </div>
-
-            <p class="text-gray-600 pb-3">4.324 curtidas • 2.362 comentários</p>
-
-              <mat-divider></mat-divider>
-
-            <div class="post-actions flex gap-3 mt-3">
-               <div class="like">
-                  <button class="flex items-center gap-2 text-gray-600">
-                     <mat-icon>thumb_up</mat-icon>
-                     Curtir
-                  </button>
-               </div>
-               <div class="comment">
-                  <button class="flex items-center gap-2 text-gray-600">
-                     <mat-icon>chat</mat-icon>
-                     Comentar
-                  </button>
-               </div>
-               <div class="share">
-                  <button class="flex items-center gap-2 text-gray-600">
-                     <mat-icon>share_windows</mat-icon>
-                     Compartilhar
-                  </button>
-               </div>
-            </div>
-         </div>
+         }
       </div>
 
       <!-- Sidebar Right -->
