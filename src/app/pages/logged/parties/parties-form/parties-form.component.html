@@ -3,23 +3,23 @@
     <div class="filter grid grid-cols-12 mt-7 container gap-5">
         <div class="col-span-8">
             <label for="city">Nome</label>
-            <input type="text" class="container px-3 h-12 input" formControlName="name">
+            <input type="text" class="container px-3 h-12 input shadow rounded-lg" formControlName="name">
         </div>
         <div class="col-span-4">
             <label for="city">Sigla</label>
-            <input type="text" class="container px-3 h-12 input" formControlName="acronym">
+            <input type="text" class="container px-3 h-12 input shadow rounded-lg" formControlName="acronym">
         </div>
         <div class="col-span-8">
             <label for="city">Fundadores</label>
-            <input type="text" class="container px-3 h-12 input" formControlName="founders">
+            <input type="text" class="container px-3 h-12 input shadow rounded-lg" formControlName="founders">
         </div>
         <div class="col-span-4">
             <label for="city">Data de fundação</label>
-            <input type="date" class="container px-3 h-12 input" formControlName="founding_date">
+            <input type="date" class="container px-3 h-12 input shadow rounded-lg" formControlName="founding_date">
         </div>
         <div class="col-span-5">
             <label for="city">Estado</label>
-            <select class=" container px-3 h-12 input" [(ngModel)]="selectedStateId"
+            <select class=" container px-3 h-12 input shadow rounded-lg" [(ngModel)]="selectedStateId"
                 [ngModelOptions]="{standalone: true}" (change)="onStateChange()">
                 <option value="" selected disabled></option>
                 @for(state of states; track state) {
@@ -29,7 +29,7 @@
         </div>
         <div class="col-span-7">
             <label for="city">Cidade</label>
-            <select class=" container px-3 h-12 input" [disabled]="selectedStateId == null" [(ngModel)]="selectedCityId"
+            <select class=" container px-3 h-12 input shadow rounded-lg" [disabled]="selectedStateId == null" [(ngModel)]="selectedCityId"
                 [ngModelOptions]="{standalone: true}" (click)="onCityChange()">
                 @for(city of cities; track city) {
                 <option [value]="city.id">{{city.name}}</option>
@@ -38,11 +38,11 @@
         </div>
         <div class="col-span-12">
             <label for="">Descrição</label>
-            <textarea class=" container px-3 py-1 h-32 input" formControlName="description"></textarea>
+            <textarea class=" container px-3 py-1 h-32 input shadow rounded-lg" formControlName="description"></textarea>
         </div>
         <div class="col-span-12">
             <label for="" class="mb-2">Estatuto</label>
-            <textarea class=" container px-3 py-1 h-32 input" formControlName="statute"></textarea>
+            <textarea class=" container px-3 py-1 h-32 input shadow rounded-lg" formControlName="statute"></textarea>
         </div>
 
 
@@ -50,6 +50,6 @@
     <div class="flex items-center justify-between mt-10">
         <button class="w-1/4 border-[2px] border-[#1B4588] text-[#1B4588] h-14 rounded-lg"
             [routerLink]="['/parties']">Cancelar</button>
-        <button class="w-1/4 bg-[#1B4588] text-white h-14 rounded-lg" (click)="createParty()">Solicitar</button>
+        <button class="w-1/4 bg-[#1B4588] hover:bg-[#163970] text-white h-14 rounded-lg" (click)="createParty()">Solicitar</button>
     </div>
 </main>

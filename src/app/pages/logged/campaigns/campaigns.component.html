@@ -1,51 +1,52 @@
 <main class="container mx-auto px-8 py-8">
-        <h1>Campanhas</h1>
+    <h1>Campanhas</h1>
 
     <div class="filter grid grid-cols-12 mt-7 container gap-5">
         <div class="col-span-4">
             <label for="city">Nome</label>
-            <input type="text" class="container px-3 h-12 input" placeholder="Nome">
+            <input type="text" class="container px-3 h-12 input shadow rounded-lg" placeholder="Nome">
         </div>
         <div class="col-span-4">
             <label for="city">Partido</label>
-            <select class=" container px-3 h-12 input">
+            <select class=" container px-3 h-12 input shadow rounded-lg">
                 <option value="" selected disabled></option>
                 @for(party of parties; track party) {
-                    <option value="" >{{party.name}} - {{party.acronym}}</option>
+                <option value="">{{party.name}} - {{party.acronym}}</option>
                 }
             </select>
         </div>
         <div class="col-span-4">
             <label for="city">Cargo</label>
-            
-            <select class=" container px-3 h-12 input">
+
+            <select class=" container px-3 h-12 input shadow rounded-lg">
                 <option value="" selected disabled></option>
                 @for(office of offices; track office) {
-                    <option value="" >{{office.name}}</option>
+                <option value="">{{office.name}}</option>
                 }
             </select>
         </div>
         <div class="col-span-6">
             <label for="city">Estado</label>
-            <select class=" container px-3 h-12 input" [(ngModel)]="selectedStateId" (change)="onStateChange()">
+            <select class=" container px-3 h-12 input shadow rounded-lg" [(ngModel)]="selectedStateId"
+                (change)="onStateChange()">
                 <option value="" selected disabled></option>
                 @for(state of states; track state) {
-                    <option [value]="state.id" >{{state.name}} - {{state.uf}}</option>
+                <option [value]="state.id">{{state.name}} - {{state.uf}}</option>
                 }
             </select>
         </div>
         <div class="col-span-6">
             <label for="city">Cidade</label>
-            <select class=" container px-3 h-12 input">
+            <select class=" container px-3 h-12 input shadow rounded-lg">
                 @for(city of cities; track city) {
-                    <option value="" >{{city.name}}</option>
+                <option value="">{{city.name}}</option>
                 }
             </select>
         </div>
 
         <div class="col-span-2">
-            <button class="container bg-[#1B4588] text-white h-14 rounded-lg" >Buscar</button>
+            <button class="container bg-[#1B4588] hover:bg-[#163970] text-white h-14 rounded-lg">Buscar</button>
         </div>
-        
+
     </div>
 </main>

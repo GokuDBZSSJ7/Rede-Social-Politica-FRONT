@@ -1,5 +1,54 @@
+@use '@angular/material' as mat;
+
 /* Imports */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+$primary-palette: mat.define-palette((
+  50: #e3e8f3,
+  100: #bac6e0,
+  200: #8da1cb,
+  300: #5f7bb5,
+  400: #3e60a4,
+  500: #1B4588,
+  600: #183e80,
+  700: #143474,
+  800: #102a69,
+  900: #081956,
+  A100: #bac6e0,
+  A200: #8da1cb,
+  A400: #3e60a4,
+  A700: #143474,
+  contrast: (
+    50: rgba(0, 0, 0, 0.87),
+    100: rgba(0, 0, 0, 0.87),
+    200: rgba(0, 0, 0, 0.87),
+    300: rgba(0, 0, 0, 0.87),
+    400: rgba(255, 255, 255, 0.87),
+    500: rgba(255, 255, 255, 0.87),
+    600: rgba(255, 255, 255, 0.87),
+    700: rgba(255, 255, 255, 0.87),
+    800: rgba(255, 255, 255, 0.87),
+    900: rgba(255, 255, 255, 0.87),
+    A100: rgba(0, 0, 0, 0.87),
+    A200: rgba(0, 0, 0, 0.87),
+    A400: rgba(255, 255, 255, 0.87),
+    A700: rgba(255, 255, 255, 0.87),
+  ),
+));
+
+$accent-palette: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$warn-palette: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $primary-palette,
+    accent: $accent-palette,
+    warn: $warn-palette,
+  )
+));
+
+@include mat.core();
+@include mat.all-component-themes($my-theme);
 
 @tailwind base;
 @tailwind components;
