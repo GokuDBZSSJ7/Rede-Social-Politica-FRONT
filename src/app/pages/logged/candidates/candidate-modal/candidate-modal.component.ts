@@ -107,6 +107,8 @@ export class CandidateModalComponent implements OnInit {
 
   onCityChange(): void {
     this.form.get('city_id')?.setValue(this.selectedCityId);
+    console.log(this.selectedCityId);
+
   }
 
   onOfficeChange(): void {
