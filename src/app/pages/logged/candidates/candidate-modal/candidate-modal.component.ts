@@ -65,7 +65,7 @@ export class CandidateModalComponent implements OnInit {
       experience: [null, [Validators.required]],
       gender: [null, [Validators.required]],
       phone: [null, [Validators.required]],
-      office_id: [null, [Validators.required]],
+      position_id: [null, [Validators.required]],
       party_id: [null, [Validators.required]],
       city_id: [this.selectedCityId, [Validators.required]],
       state_id: [this.selectedStateId, [Validators.required]],
@@ -112,11 +112,11 @@ export class CandidateModalComponent implements OnInit {
   }
 
   onOfficeChange(): void {
-    this.form.get('party_id')?.setValue(this.selectedPartyId);
+    this.form.get('position_id')?.setValue(this.selectedOfficeId);
   }
 
   onPartyChange(): void {
-    this.form.get('office_id')?.setValue(this.selectedPartyId);
+    this.form.get('party_id')?.setValue(this.selectedPartyId);
   }
 
   save() {

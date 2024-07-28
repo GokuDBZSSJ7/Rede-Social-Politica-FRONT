@@ -11,6 +11,6 @@ export class OfficeService {
   constructor(private http: HttpClient) { }
 
   list(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}office`);
+    return this.http.get<any>(`${this.apiUrl}position`);
   }
 }
