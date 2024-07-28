@@ -10,8 +10,12 @@ export class PostService {
   private apiUrl = 'http://127.0.0.1:8000/api/';
 
   constructor(private http: HttpClient) { }
-  
+
   all(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}post`);
+  }
+
+  create(data: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}post`, data);
   }
 }

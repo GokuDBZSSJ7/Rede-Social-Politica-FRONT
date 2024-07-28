@@ -5,7 +5,7 @@
          <div class="bg-white shadow rounded-lg p-4 text-center">
             <img src="/assets/img/test-images/old-man.png" alt="Profile Picture"
                class="rounded-full w-[96px] h-[96px] border-[3px] border-gray-200 mx-auto mb-3 object-cover object-center">
-            <p class="font-medium text-base pb-1">Nome usuário</p>
+            <p class="font-medium text-base pb-1">{{user.name}}</p>
             <p>Cargo • Cidade, UF</p>
             <button class="btn font-medium pt-3 text-blue-900 hover:text-blue-950">Ver perfil</button>
             <!-- <img src="https://via.placeholder.com/100" alt="Profile" class="w-30 h-24 rounded-full mx-auto mb-2">
@@ -53,7 +53,7 @@
                   class="w-full my-3">
             </div>
 
-            <p class="text-gray-600 pb-3">4.324 curtidas • 2.362 comentários</p>
+            <p class="text-gray-600 pb-3">{{post?.likes}} curtidas • 2.362 comentários</p>
 
             <mat-divider></mat-divider>
 

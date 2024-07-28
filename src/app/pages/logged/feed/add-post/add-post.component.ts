@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { PostService } from '../../../../services/post.service';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-add-post',
@@ -36,12 +37,14 @@ import { PostService } from '../../../../services/post.service';
 })
 export class AddPostComponent implements OnInit {
   form!: FormGroup;
+  user = this.authService.getUser()
 
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<AddPostComponent>,
     // @Inject(MAT_DIALOG_DATA) public data: any,
     private postService: PostService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -50,7 +53,7 @@ export class AddPostComponent implements OnInit {
 
   initializeForm() {
     this.form = this.fb.group({
-      id: [null],
+      user_id: [this.user.id],
       description: [null],
     })
   }
@@ -65,16 +68,16 @@ export class AddPostComponent implements OnInit {
     textarea.style.height = `${textarea.scrollHeight}px`;
   }
 
-  // publishPost() {
-  //   if (this.form.valid) {
-  //     this.postService.publish(this.form.value).subscribe({
-  //       next: (res: any) => {
-  //         this.dialogRef.close(res)
-  //       },
-  //       error: (err) => {
-  //         console.error('Erro ao publicar post', err);
-  //       }
-  //     });
-  //   }
-  // }
+  publishPost() {
+    if (this.form.valid) {
+      this.postService.create(this.form.value).subscribe({
+        next: (res: any) => {
+          this.dialogRef.close(res)
+        },
+        error: (err) => {
+          console.error('Erro ao publicar post', err);
+        }
+      });
+    }
+  }
 }

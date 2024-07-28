@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AddPostComponent } from './add-post/add-post.component';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-feed',
@@ -33,10 +34,12 @@ import { AddPostComponent } from './add-post/add-post.component';
 })
 export class FeedComponent implements OnInit {
   posts: any[] = []
-    
+  user = this.authService.getUser()
+
   constructor(
     private postService: PostService,
     public dialog: MatDialog,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
