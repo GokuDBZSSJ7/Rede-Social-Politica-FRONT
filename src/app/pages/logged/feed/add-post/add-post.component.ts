@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { PostService } from '../../../../services/post.service';
 import { AuthService } from '../../../../services/auth.service';
+import { CandidatesService } from '../../../../services/candidates.service';
 
 @Component({
   selector: 'app-add-post',
@@ -37,24 +38,37 @@ import { AuthService } from '../../../../services/auth.service';
 })
 export class AddPostComponent implements OnInit {
   form!: FormGroup;
-  user = this.authService.getUser()
+  user: any = this.authService.getUser()
+  candidate: any;
 
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<AddPostComponent>,
     // @Inject(MAT_DIALOG_DATA) public data: any,
     private postService: PostService,
-    private authService: AuthService
+    private authService: AuthService,
+    private candidateService: CandidatesService
   ) { }
 
   ngOnInit() {
     this.initializeForm();
+    this.getCandidate();
+  }
+
+  getCandidate() {
+    this.candidateService.getCandidateByUserId(this.user.id).subscribe({
+      next: (res) => {
+        this.candidate = res,
+          this.form.patchValue({ candidate_id: this.candidate.id });
+      }
+    })
   }
 
   initializeForm() {
     this.form = this.fb.group({
       user_id: [this.user.id],
       description: [null],
+      candidate_id: [null]
     })
   }
 

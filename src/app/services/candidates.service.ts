@@ -14,6 +14,10 @@ export class CandidatesService {
     return this.http.get<any>(`${this.apiUrl}candidates`);
   }
 
+  getCandidateByUserId(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}getCandidateByUserId/${id}`);
+  }
+
   create(data: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}candidates`, data)
   }

@@ -69,6 +69,7 @@ export class CandidateModalComponent implements OnInit {
       party_id: [null, [Validators.required]],
       city_id: [this.selectedCityId, [Validators.required]],
       state_id: [this.selectedStateId, [Validators.required]],
+      user_id: [this.user.id, [Validators.required]]
     });
   }
 

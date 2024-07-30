@@ -5,8 +5,8 @@
          <div class="bg-white shadow rounded-lg p-4 text-center">
             <img src="/assets/img/test-images/old-man.png" alt="Profile Picture"
                class="rounded-full w-[96px] h-[96px] border-[3px] border-gray-200 mx-auto mb-3 object-cover object-center">
-            <p class="font-medium text-base pb-1">{{user.name}}</p>
-            <p>Cargo • Cidade, UF</p>
+            <p class="font-medium text-base pb-1">{{candidate?.name}}</p>
+            <p>{{candidate?.position?.name}} • {{candidate?.city?.name}}, {{candidate?.state?.uf}}</p>
             <button class="btn font-medium pt-3 text-blue-900 hover:text-blue-950">Ver perfil</button>
             <!-- <img src="https://via.placeholder.com/100" alt="Profile" class="w-30 h-24 rounded-full mx-auto mb-2">
             <h5 class="text-lg font-semibold">Lucas Baggio</h5>
@@ -18,6 +18,7 @@
       <!-- Main Content -->
       <div class="w-full flex flex-col md:w-1/2 p-2 gap-3">
          <!-- Add Comment Box -->
+         @if(candidate) {
          <div class="bg-white shadow rounded-lg">
             <button class="flex items-center gap-2 hover:bg-gray-50 w-full p-4" style="color: #686868 !important;"
                (click)="openAddPostModal()">
@@ -26,6 +27,7 @@
                <p class="text-base">Iniciar postagem</p>
             </button>
          </div>
+         }
 
          <!-- Post 1 -->
          @for(post of posts; track post) {
@@ -36,8 +38,9 @@
                      class="rounded-full w-[64px] h-[64px] border-[2px] border-gray-200 object-cover object-center">
                </div>
                <div class="">
-                  <p class="text-base font-semibold">{{post?.user?.name}}</p>
-                  <p class="text-sm font-normal text-gray-600 mb-2">Candidato • Cargo</p>
+                  <p class="text-base font-semibold">{{post?.candidate?.name}}</p>
+                  <p class="text-sm font-normal text-gray-600 mb-2">{{post?.candidate?.party?.name}} •
+                     {{post?.candidate?.position?.name}}</p>
                   <p class="text-xs font-light">Há 2 horas</p>
                </div>
             </div>

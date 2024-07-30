@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AddPostComponent } from './add-post/add-post.component';
 import { AuthService } from '../../../services/auth.service';
+import { CandidatesService } from '../../../services/candidates.service';
 
 @Component({
   selector: 'app-feed',
@@ -34,16 +35,28 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class FeedComponent implements OnInit {
   posts: any[] = []
+  candidate: any;
   user = this.authService.getUser()
 
   constructor(
     private postService: PostService,
     public dialog: MatDialog,
-    private authService: AuthService
+    private authService: AuthService,
+    private candidateService: CandidatesService
   ) { }
 
   ngOnInit() {
+    this.getCandidate();
     this.listPosts();
+  }
+
+  getCandidate() {
+    this.candidateService.getCandidateByUserId(this.user.id).subscribe({
+      next: (res) => {
+        this.candidate = res
+
+      }
+    })
   }
 
   listPosts() {
