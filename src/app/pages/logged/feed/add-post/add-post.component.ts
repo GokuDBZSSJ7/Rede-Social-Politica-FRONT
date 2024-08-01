@@ -87,18 +87,13 @@ export class AddPostComponent implements OnInit {
   publishPost() {
     if (this.form.valid) {
       const formData = this.form.value;
-
+  
       // Verifica se a imagem base64 está presente e adiciona o prefixo se necessário
       if (this.imageUrl) {
         const base64String = this.imageUrl as string;
-        // Verifica se já possui o prefixo 'data:image/...;base64,'
-        if (!base64String.startsWith('data:image/')) {
-          formData.image_url = `data:image/jpeg;base64,${base64String}`;
-        } else {
-          formData.image_url = base64String;
-        }
+        formData.image_url = base64String.split(',')[1]; // Remove o prefixo 'data:image/...;base64,'
       }
-
+  
       this.postService.create(formData).subscribe({
         next: (res: any) => {
           this.dialogRef.close(res);

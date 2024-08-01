@@ -52,7 +52,7 @@
             </div>
 
             <div class="post-midia">
-               <img [src]="post.image_url || 'https://via.placeholder.com/600x390'" alt="Post Image"
+               <img [src]="post.image_url ? post.image_url : 'https://via.placeholder.com/600x390'" alt="Post Image"
                   class="w-full my-3">
             </div>
             <div class="flex gap-2 pb-3 text-gray-600">
