@@ -1,0 +1,18 @@
+<main class="container mx-auto px-8 py-8">
+   <div class="flex flex-wrap items-center justify-between">
+      <h1>Cargos</h1>
+      <button
+      class="border-[2px] border-[#1B4588] text-[#1B4588] px-6 py-2 rounded-lg hover:bg-[#1B4588] hover:text-white"
+         [routerLink]="['/positions-creation']" routerLinkActive="router-link-active">Novo Cargo</button>
+   </div>
+
+   <div class="filter grid grid-cols-12 mt-7 container gap-5">
+      <div class="col-span-10">
+         <label>Nome</label>
+         <input type="text" class="container px-3 h-12 input shadow rounded-lg" placeholder="Nome">
+      </div>
+      <div class="col-span-2 flex flex-col justify-end">
+         <button class="container bg-[#1B4588] hover:bg-[#163970] text-white h-12 rounded-lg">Buscar</button>
+     </div>
+   </div>
+</main>

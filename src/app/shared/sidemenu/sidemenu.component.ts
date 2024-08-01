@@ -143,7 +143,7 @@ export class SidemenuComponent implements OnInit {
       {
         label: 'Cargo',
         icon: 'role_icon',
-        route: '/'
+        route: '/positions'
       },
       {
         label: 'Campanha',

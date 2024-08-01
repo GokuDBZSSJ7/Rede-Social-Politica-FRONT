@@ -9,6 +9,8 @@ import { CandidateModalComponent } from './pages/logged/candidates/candidate-mod
 import { CampaignsComponent } from './pages/logged/campaigns/campaigns.component';
 import { PartiesComponent } from './pages/logged/parties/parties.component';
 import { PartiesFormComponent } from './pages/logged/parties/parties-form/parties-form.component';
+import { PositionsComponent } from './pages/logged/positions/positions.component';
+import { PositionsFormComponent } from './pages/logged/positions/positions-form/positions-form.component';
 
 export const routes: Routes = [
    {
@@ -44,6 +46,14 @@ export const routes: Routes = [
          {
             path: 'parties-creation',
             component: PartiesFormComponent
+         },
+         {
+            path: 'positions',
+            component: PositionsComponent,
+         },
+         {
+            path: 'positions-creation',
+            component: PositionsFormComponent
          }
       ]
    },
