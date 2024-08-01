@@ -50,6 +50,15 @@ export class FeedComponent implements OnInit {
     this.listPosts();
   }
 
+  addLike(id: number) {
+    this.postService.addLike(id).subscribe({
+      next: (res) => {
+        this.listPosts()
+
+      }
+    });
+  }
+
   getCandidate() {
     this.candidateService.getCandidateByUserId(this.user.id).subscribe({
       next: (res) => {

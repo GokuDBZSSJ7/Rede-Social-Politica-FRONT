@@ -18,4 +18,12 @@ export class PostService {
   create(data: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}post`, data);
   }
+
+  addLike(id: number): Observable<any> {
+    return this.http.put(`${this.apiUrl}like/${id}`, id)
+  }
+
+  removeLike(id: number): Observable<any> {
+    return this.http.put(`${this.apiUrl}deslike/${id}`, id)
+  }
 }
