@@ -1,0 +1,31 @@
+<main class="container mx-auto px-8 py-8" [formGroup]="form">
+   <h1>Cadastrar Cargo</h1>
+   <div class="filter grid grid-cols-12 mt-7 container gap-5">
+      <div class="col-span-8">
+         <label>Nome</label>
+         <input type="text" class="container px-3 h-12 input shadow rounded-lg" formControlName="name">
+      </div>
+      <div class="col-span-4">
+         <label>Período de mandato</label>
+         <input type="number" class="container px-3 h-12 input shadow rounded-lg" formControlName="term_period">
+      </div>
+      <div class="col-span-6">
+         <label>Descrição</label>
+         <input type="text" class="container px-3 h-12 input shadow rounded-lg" formControlName="description">
+      </div>
+      <div class="col-span-6">
+         <label>Jurisdição</label>
+         <input type="text" class="container px-3 h-12 input shadow rounded-lg" formControlName="jurisdiction">
+      </div>
+      <div class="col-span-12">
+         <label>Requisitos</label>
+         <input type="text" class="container px-3 h-12 input shadow rounded-lg" formControlName="requirements">
+      </div>
+   </div>
+
+   <div class="flex items-center justify-between mt-10">
+      <button class="w-1/4 border-[2px] border-[#1B4588] text-[#1B4588] h-14 rounded-lg"
+          [routerLink]="['/positions']">Cancelar</button>
+      <button class="w-1/4 bg-[#1B4588] hover:bg-[#163970] text-white h-14 rounded-lg" (click)="createPosition()">Solicitar</button>
+  </div>
+</main>
