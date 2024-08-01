@@ -46,7 +46,7 @@
             </div>
 
             <div class="post-text">
-               <p class="text-gray-800 text-justify">{{post.description}}
+               <p class="text-gray-800 text-justify">{{post?.description}}
                   <!-- <button class="font-medium text-blue-800 hover:text-blue-900">ver mais</button> -->
                </p>
             </div>
@@ -63,19 +63,19 @@
             <div class="post-actions flex gap-3 mt-3">
                <div class="like">
                   <button class="flex items-center gap-2 text-gray-600">
-                     <mat-icon>thumb_up</mat-icon>
+                     <mat-icon fontSet="material-icons-outlined">thumb_up</mat-icon>
                      Gostei
                   </button>
                </div>
                <div class="like">
                   <button class="flex items-center gap-2 text-gray-600">
-                     <mat-icon>thumb_down</mat-icon>
+                     <mat-icon fontSet="material-icons-outlined">thumb_down</mat-icon>
                      Não gostei
                   </button>
                </div>
                <div class="comment">
                   <button class="flex items-center gap-2 text-gray-600">
-                     <mat-icon>chat</mat-icon>
+                     <mat-icon fontSet="material-icons-outlined">chat</mat-icon>
                      Comentar
                   </button>
                </div>

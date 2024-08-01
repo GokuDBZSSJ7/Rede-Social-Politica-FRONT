@@ -1,12 +1,12 @@
 <div class="" [formGroup]="form">
    <div class="dialog-header flex justify-between items-baseline px-6">
-      <h2 mat-dialog-title>Adicionar Publicação</h2>
+      <h2 mat-dialog-title>Adicionar publicação</h2>
       <mat-icon (click)="closeModal()" class="hover:cursor-pointer">close</mat-icon>
    </div>
 
    <mat-dialog-content>
       <div class="description">
-         <textarea (input)="autoGrow($event)" class="w-full border-[1.5px] p-3 border-gray-200 outline-none"
+         <textarea (input)="autoGrow($event)" class="w-full border-[1.5px] p-3 rounded border-gray-200 outline-none"
             formControlName="description"></textarea>
       </div>
       <!-- <div class="attach-container border-[2px] border-dashed border-[#1B4588] py-16 px-6 gap-2 flex flex-col justify-center items-center">
@@ -17,7 +17,8 @@
 
    <mat-dialog-actions style="display: flex; justify-content: space-between;">
       <div class="attach">
-         <mat-icon color="primary" class="hover:cursor-pointer">add_photo_alternate</mat-icon>
+         <mat-icon fontSet="material-icons-outlined"
+            class="cursor-pointer text-[#909090] hover:text-[#5f5f5f]">add_photo_alternate</mat-icon>
       </div>
       <button mat-flat-button color="primary" class="ms-auto" (click)="publishPost()">Publicar</button>
    </mat-dialog-actions>

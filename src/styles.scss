@@ -66,3 +66,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 body {
    min-height: 100vh;
 }
+
+.mat-mdc-menu-item:hover {
+  background: #f3f3f3 !important;
+  border-radius: 10px;
+}
+
+.active {
+  background-color: #e2e2e2 !important;
+  border-radius: 10px;
+}

@@ -63,8 +63,7 @@ export class FeedComponent implements OnInit {
     this.postService.all().subscribe({
       next: (res) => {
         console.log(res);
-
-        this.posts = res
+        this.posts = res;
       }
     })
   }

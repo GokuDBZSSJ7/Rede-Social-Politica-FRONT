@@ -26,13 +26,13 @@
       <div style="margin: 0 10px 4px 10px; font-size: 16px;">
          @for (submenu of menu.contentMenus; track submenu) {
             @if (!submenu.handler) {
-               <button mat-menu-item [routerLink]="submenu.route" routerLinkActive="active">
+               <button mat-menu-item [routerLink]="submenu.route" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                   <mat-icon [svgIcon]="submenu.icon" aria-hidden="false"></mat-icon>
                   <span>{{ submenu.label }}</span>
                </button>
             }
             @if (submenu.handler) {
-               <button mat-menu-item [routerLink]="submenu.route" [class]="submenu.classPanel">
+               <button mat-menu-item (click)="submenu.handler()" [class]="submenu.classPanel">
                   <mat-icon [svgIcon]="submenu.icon" aria-hidden="false"></mat-icon>
                   <span>{{ submenu.label }}</span>
                </button>
