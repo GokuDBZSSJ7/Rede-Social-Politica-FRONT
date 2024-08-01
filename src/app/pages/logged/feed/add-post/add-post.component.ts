@@ -1,7 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
-  MatDialog,
-  MAT_DIALOG_DATA,
   MatDialogRef,
   MatDialogTitle,
   MatDialogContent,
@@ -34,17 +32,17 @@ import { CandidatesService } from '../../../../services/candidates.service';
     ReactiveFormsModule,
   ],
   templateUrl: './add-post.component.html',
-  styleUrl: './add-post.component.scss'
+  styleUrls: ['./add-post.component.scss']
 })
 export class AddPostComponent implements OnInit {
   form!: FormGroup;
-  user: any = this.authService.getUser()
+  user: any = this.authService.getUser();
   candidate: any;
+  imageUrl: string | ArrayBuffer | null = null;
 
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<AddPostComponent>,
-    // @Inject(MAT_DIALOG_DATA) public data: any,
     private postService: PostService,
     private authService: AuthService,
     private candidateService: CandidatesService
@@ -58,18 +56,22 @@ export class AddPostComponent implements OnInit {
   getCandidate() {
     this.candidateService.getCandidateByUserId(this.user.id).subscribe({
       next: (res) => {
-        this.candidate = res,
-          this.form.patchValue({ candidate_id: this.candidate.id });
+        this.candidate = res;
+        this.form.patchValue({ candidate_id: this.candidate.id });
+      },
+      error: (err) => {
+        console.error('Erro ao obter candidato', err);
       }
-    })
+    });
   }
 
   initializeForm() {
     this.form = this.fb.group({
       user_id: [this.user.id],
       description: [null],
-      candidate_id: [null]
-    })
+      candidate_id: [null],
+      image_url: [null]
+    });
   }
 
   closeModal(): void {
@@ -84,14 +86,45 @@ export class AddPostComponent implements OnInit {
 
   publishPost() {
     if (this.form.valid) {
-      this.postService.create(this.form.value).subscribe({
+      const formData = this.form.value;
+
+      // Verifica se a imagem base64 está presente e adiciona o prefixo se necessário
+      if (this.imageUrl) {
+        const base64String = this.imageUrl as string;
+        // Verifica se já possui o prefixo 'data:image/...;base64,'
+        if (!base64String.startsWith('data:image/')) {
+          formData.image_url = `data:image/jpeg;base64,${base64String}`;
+        } else {
+          formData.image_url = base64String;
+        }
+      }
+
+      this.postService.create(formData).subscribe({
         next: (res: any) => {
-          this.dialogRef.close(res)
+          this.dialogRef.close(res);
         },
         error: (err) => {
           console.error('Erro ao publicar post', err);
         }
       });
+    }
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = (e: ProgressEvent<FileReader>) => {
+        if (e.target) {
+          const base64String = e.target.result as string;
+          this.imageUrl = base64String;
+          this.form.get('image_url')?.setValue(base64String);
+        }
+      };
+
+      reader.readAsDataURL(file);
     }
   }
 }
