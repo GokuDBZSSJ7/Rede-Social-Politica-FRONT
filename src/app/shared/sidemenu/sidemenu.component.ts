@@ -121,6 +121,11 @@ export class SidemenuComponent implements OnInit {
         route: '/'
       },
       {
+        label: 'Minha conta',
+        icon: '',
+        route: '/my-user'
+      },
+      {
         label: 'Sair',
         icon: 'logout_icon',
         route: '/',

@@ -11,6 +11,7 @@ import { PartiesComponent } from './pages/logged/parties/parties.component';
 import { PartiesFormComponent } from './pages/logged/parties/parties-form/parties-form.component';
 import { PositionsComponent } from './pages/logged/positions/positions.component';
 import { PositionsFormComponent } from './pages/logged/positions/positions-form/positions-form.component';
+import { MyUserComponent } from './pages/logged/my-user/my-user.component';
 
 export const routes: Routes = [
    {
@@ -54,6 +55,10 @@ export const routes: Routes = [
          {
             path: 'positions-creation',
             component: PositionsFormComponent
+         },
+         {
+            path: 'my-user',
+            component: MyUserComponent
          }
       ]
    },
