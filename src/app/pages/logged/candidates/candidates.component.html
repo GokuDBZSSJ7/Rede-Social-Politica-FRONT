@@ -1,7 +1,10 @@
 <main class="container mx-auto px-8 py-8">
     <div class="flex flex-wrap items-center justify-between">
         <h1>Candidatos</h1>
-        <button class="border-[2px] border-[#1B4588] text-[#1B4588] px-6 py-2 rounded-lg hover:bg-[#1B4588] hover:text-white" [routerLink]="['/candidate-creation']" routerLinkActive="router-link-active" >Solicitar Aprovação para Candidato</button>
+        <button
+            class="border-[2px] border-[#1B4588] text-[#1B4588] px-6 py-2 rounded-lg hover:bg-[#1B4588] hover:text-white"
+            [routerLink]="['/candidate-creation']" routerLinkActive="router-link-active">Solicitar Aprovação para
+            Candidato</button>
     </div>
 
     <div class="filter grid grid-cols-12 mt-7 container gap-5">
@@ -14,26 +17,27 @@
             <select class=" container px-3 h-12 input shadow rounded-lg">
                 <option value="" selected disabled></option>
                 @for(party of parties; track party) {
-                    <option value="" >{{party.name}} - {{party.acronym}}</option>
+                <option value="">{{party.name}} - {{party.acronym}}</option>
                 }
             </select>
         </div>
         <div class="col-span-4">
             <label for="city">Cargo</label>
-            
+
             <select class=" container px-3 h-12 input shadow rounded-lg">
                 <option value="" selected disabled></option>
                 @for(office of offices; track office) {
-                    <option value="" >{{office.name}}</option>
+                <option value="">{{office.name}}</option>
                 }
             </select>
         </div>
         <div class="col-span-6">
             <label for="city">Estado</label>
-            <select class=" container px-3 h-12 input shadow rounded-lg" [(ngModel)]="selectedStateId" (change)="onStateChange()">
+            <select class=" container px-3 h-12 input shadow rounded-lg" [(ngModel)]="selectedStateId"
+                (change)="onStateChange()">
                 <option value="" selected disabled></option>
                 @for(state of states; track state) {
-                    <option [value]="state.id" >{{state.name}} - {{state.uf}}</option>
+                <option [value]="state.id">{{state.name}} - {{state.uf}}</option>
                 }
             </select>
         </div>
@@ -41,14 +45,99 @@
             <label for="city">Cidade</label>
             <select class=" container px-3 h-12 input shadow rounded-lg">
                 @for(city of cities; track city) {
-                    <option value="" >{{city.name}}</option>
+                <option value="">{{city.name}}</option>
                 }
             </select>
         </div>
 
         <div class="col-span-2">
-            <button class="container bg-[#1B4588] hover:bg-[#163970] text-white h-14 rounded-lg" >Buscar</button>
+            <button class="container bg-[#1B4588] hover:bg-[#163970] text-white h-12 rounded-lg">Buscar</button>
         </div>
-        
     </div>
+
+    <table mat-table [dataSource]="dataSource" class="w-full mt-7">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Nome </th>
+            <td mat-cell *matCellDef="let item">
+                <span>{{item.name}}</span>
+            </td>
+        </ng-container>
+
+        <!-- Age Column -->
+        <ng-container matColumnDef="age">
+            <th mat-header-cell *matHeaderCellDef> Idade </th>
+            <td mat-cell *matCellDef="let item">
+                <span>{{item.age}}</span>
+            </td>
+        </ng-container>
+
+        <!-- Party Column -->
+        <ng-container matColumnDef="party">
+            <th mat-header-cell *matHeaderCellDef> Partido </th>
+            <td mat-cell *matCellDef="let item">
+                <span>{{item?.party.name}}</span>
+            </td>
+        </ng-container>
+
+        <!-- Electoral Number Column -->
+        <ng-container matColumnDef="electoral_number">
+            <th mat-header-cell *matHeaderCellDef> Número Eleitoral </th>
+            <td mat-cell *matCellDef="let item">
+                <span>{{item.electoral_number}}</span>
+            </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> Cargo </th>
+            <td mat-cell *matCellDef="let item">
+                <span>{{item?.position.name}}</span>
+            </td>
+        </ng-container>
+
+        <!-- City and UF Column -->
+        <ng-container matColumnDef="city_uf">
+            <th mat-header-cell *matHeaderCellDef> Cidade / Estado </th>
+            <td mat-cell *matCellDef="let item">
+                <span>{{item?.city.name}}, {{item?.state.uf}}</span>
+            </td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let item">
+                <span class="nome">{{item.status}}</span>
+            </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Ações </th>
+            <td mat-cell *matCellDef="let actions">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <!-- <button mat-menu-item [routerLink]="['/occurrences', actions.id]">
+                    <mat-icon>edit</mat-icon>
+                    <span>Editar</span>
+                 </button> -->
+                    <button mat-menu-item (click)="approveCandidate(actions)">
+                        <mat-icon>check</mat-icon>
+                        <span>Aprovar</span>
+                    </button>
+                    <!-- <button mat-menu-item (click)="delete(actions)">
+                    <mat-icon>delete</mat-icon>
+                    <span>Excluir</span>
+                 </button> -->
+                </mat-menu>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
 </main>

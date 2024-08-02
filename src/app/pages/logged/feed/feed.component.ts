@@ -79,12 +79,12 @@ export class FeedComponent implements OnInit {
 
   openAddPostModal() {
     const dialogRef = this.dialog.open(AddPostComponent, {
-      width: '514px',
+      width: '520px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.posts.unshift(result);
+        this.posts = result;
       }
     });
   }
