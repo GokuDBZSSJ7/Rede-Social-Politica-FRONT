@@ -3,11 +3,11 @@
 <div class="fuse-vertical-navigation-wrapper sidemenu">
    <div class="flex items-center justify-center w-full p-3">
       <div class="">
-         <h1 class="m-0 py-5" style="margin: 0;">System</h1>
+         <h1 class="m-0 py-3" style="margin: 0;">System</h1>
       </div>
    </div>
 
-   <div>
+   <div class="pb-5">
       @for (menu of menus; track menu) {
       <div class="mt-2">
          <div class="mx-2.5">
@@ -25,20 +25,58 @@
 
       <div style="margin: 0 10px 4px 10px; font-size: 16px;">
          @for (submenu of menu.contentMenus; track submenu) {
-            @if (!submenu.handler) {
-               <button mat-menu-item [routerLink]="submenu.route" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                  <mat-icon [svgIcon]="submenu.icon" aria-hidden="false"></mat-icon>
+         @if (!submenu.handler) {
+         <button mat-menu-item [routerLink]="submenu.route" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            <mat-icon [svgIcon]="submenu.icon" aria-hidden="false"></mat-icon>
+            <span>{{ submenu.label }}</span>
+         </button>
+         }
+         @if (submenu.handler) {
+         <button mat-menu-item (click)="submenu.handler()" [class]="submenu.classPanel">
+            <mat-icon [svgIcon]="submenu.icon" aria-hidden="false"></mat-icon>
+            <span>{{ submenu.label }}</span>
+         </button>
+         }
+         }
+      </div>
+      }
+   </div>
+
+   <mat-divider style="width: 230px; margin: 0 auto !important; border-top-color: #C6C6C6 !important;"></mat-divider>
+
+   <div class="profile-data py-5 px-4" style="margin: 0 10px">
+      <div class="flex justify-between">
+         <div class="left-align flex">
+            <img src="/assets/img/test-images/old-man.png" alt="Profile Picture"
+               class="w-12 h-12 rounded-full object-cover object-center border-[2px] border-gray-300">
+            <div class="flex flex-col justify-evenly ps-2">
+               <span class="name font-bold" style="font-size: 16px;">Luan Garcia</span>
+               <span class="position text-gray-500" style="font-size: 14px;">Governador</span>
+            </div>
+         </div>
+         <div class="right-align">
+            <button mat-icon-button class="p-0" aria-label="Open User Settings Menu" [matMenuTriggerFor]="menu">
+               <mat-icon>keyboard_arrow_up</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+               @for (submenu of userMenu; track submenu) {
+               @if (!submenu.handler) {
+               <button mat-menu-item [routerLink]="submenu.route" routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }">
+                  <mat-icon aria-hidden="false">{{ submenu.icon }}</mat-icon>
                   <span>{{ submenu.label }}</span>
                </button>
-            }
-            @if (submenu.handler) {
+               }
+               @if (submenu.handler) {
                <button mat-menu-item (click)="submenu.handler()" [class]="submenu.classPanel">
                   <mat-icon [svgIcon]="submenu.icon" aria-hidden="false"></mat-icon>
                   <span>{{ submenu.label }}</span>
                </button>
-            }
-         }
+               }
+               }
+            </mat-menu>
+         </div>
       </div>
-      }
    </div>
 </div>

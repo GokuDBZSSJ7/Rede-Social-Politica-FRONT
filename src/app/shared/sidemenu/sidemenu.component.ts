@@ -120,21 +120,6 @@ export class SidemenuComponent implements OnInit {
         icon: 'flag_icon',
         route: '/'
       },
-      {
-        label: 'Minha conta',
-        icon: '',
-        route: '/my-user'
-      },
-      {
-        label: 'Sair',
-        icon: 'logout_icon',
-        route: '/',
-        classPanel: 'logout-btn',
-        handler: () => {
-          console.log('Logout handler called');
-          this.logout();
-        }
-      }
     ],
   },
   {
@@ -166,7 +151,24 @@ export class SidemenuComponent implements OnInit {
         route: '/'
       }
     ]
-  },
+    },
+  ];
+  userMenu: any[] = [
+    {
+      label: 'Meu Perfil',
+      icon: 'account_circle',
+      route: '/my-user'
+    },
+    {
+      label: 'Sair',
+      icon: 'logout_icon',
+      route: '/',
+      classPanel: 'logout-btn',
+      handler: () => {
+        console.log('Logout handler called');
+        this.logout();
+      }
+    }
   ];
 
   constructor(

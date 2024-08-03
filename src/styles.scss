@@ -73,6 +73,17 @@ body {
 }
 
 .active {
-  background-color: #e2e2e2 !important;
+  background-color: #efefef !important;
   border-radius: 10px;
+}
+
+table {
+  th {
+    font-weight: bold !important;
+    font-size: 13px !important;
+  }
+
+  td {
+    height: 66px !important;
+  }
 }
