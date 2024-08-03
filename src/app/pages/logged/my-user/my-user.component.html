@@ -8,14 +8,14 @@
             </div>
             @if(candidate == null) {
                 <div class="info-user pl-12">
-                    <h2>{{user.name}}</h2>
+                    <h2>{{user?.name}}</h2>
                 </div>
             }
             @if(candidate !== null) {
                 <div class="info-candidate pl-12">
-                    <h2>{{candidate.name}}</h2>
-                    <p class="text-[#686868]">Candidato a {{candidate.position.name}} • {{candidate.city.name}}, {{candidate.state.uf}}</p>
-                    <p class="text-black font-bold pb-8">"{{candidate.experience}}"</p>
+                    <h2>{{candidate?.name}}</h2>
+                    <p class="text-[#686868]">Candidato a {{candidate?.position?.name}} • {{candidate?.city?.name}}, {{candidate?.state?.uf}}</p>
+                    <p class="text-black font-bold pb-8">"{{candidate?.experience}}"</p>
                     <p class="text-[#4D4D4D]">200.000 seguidores</p>
                 </div>
             }
@@ -24,7 +24,7 @@
 
     <div class="intro px-8 shadow rounded-lg py-4 mt-10">
         <h1>Biografia</h1>
-        <p class="pt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero, fuga? Dignissimos, itaque ipsam. A veritatis repellendus minima aliquam nobis odio laborum, obcaecati fuga temporibus quaerat quam sapiente dolores saepe officiis accusantium atque voluptate optio quas facilis aliquid cupiditate provident quidem? Aperiam sequi optio nostrum libero fugiat ut ab dignissimos assumenda. Doloremque fuga delectus nisi ipsam? Laborum aliquid, eius recusandae modi deserunt, tenetur dicta et, magnam accusamus optio ab nihil voluptate alias temporibus fugit delectus aut culpa eveniet molestias nostrum adipisci minima! Vero, provident quis. Natus sequi, voluptate ab minima mollitia non facilis rem corrupti. In saepe minima impedit vel animi facere sint cupiditate quasi, perspiciatis sed corrupti quibusdam numquam deserunt voluptate incidunt quae debitis ut aspernatur rerum voluptatibus ducimus quis excepturi. Aut, excepturi perspiciatis. Laudantium doloribus voluptate quo voluptatibus, dolorum suscipit id maiores eos libero temporibus minus incidunt, non voluptas nam quis? Voluptate blanditiis pariatur fuga ullam, impedit provident doloribus ea reprehenderit beatae ipsam eius, molestias, aliquam dignissimos dolorum commodi nam eveniet iste! Harum officiis mollitia illum, qui dolore enim minima quo magnam, impedit similique tempora unde omnis asperiores, temporibus provident nobis deserunt eum officia neque ratione. Ipsum soluta placeat laboriosam rerum expedita voluptatibus, unde iure esse neque nihil, consequatur nulla, quaerat atque excepturi quia ex aliquam laudantium repellendus doloremque enim mollitia officiis. Nulla esse iure eum numquam maiores ad minus! At ullam necessitatibus nihil dolore sapiente! Quae eos fugit animi provident aspernatur quod perspiciatis nihil est quam voluptatum explicabo ipsum ad, labore quia. Dignissimos repellendus fuga esse iusto? Facere.</p>
+        <p class="pt-2">{{candidate?.biography}}</p>
     </div>
 
     <div class="intro px-8 shadow rounded-lg py-4 mt-10">

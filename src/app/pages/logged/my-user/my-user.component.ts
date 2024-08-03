@@ -24,6 +24,8 @@ export class MyUserComponent implements OnInit{
     this.candidateService.getCandidateByUserId(this.user.id).subscribe({
       next: (res) => {
         this.candidate = res
+        console.log(res);
+        
       }
     })
   }
