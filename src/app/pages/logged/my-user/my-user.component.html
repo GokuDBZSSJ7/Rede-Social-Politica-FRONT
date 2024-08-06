@@ -1,49 +1,81 @@
-<main class="container flex flex-col gap-5 mx-auto px-8 py-8">
-    <h1>Perfil</h1>
+<main class="container flex flex-col gap-3 mx-auto px-8 py-8">
+    <div class="card-header flex justify-between">
+        <h1>Perfil</h1>
+        <button mat-icon-button aria-label="Edit">
+            <mat-icon fontSet="material-icons-outlined">edit_square</mat-icon>
+        </button>
+    </div>
 
-    <div class="intro bg-white px-8 shadow rounded-lg py-4 mt-12">
+    <div class="intro bg-white px-6 py-6 shadow rounded-lg mt-4">
         <div class="flex justify-items-start items-center">
             <div class="profile_picture">
-                <img class="rounded-full border-[1px] border-black w-[200px] h-[200px]" src="/assets/img/test-images/old-man.png" alt="">
+                <img class="rounded-full border-[2px] border-gray-200 w-[160px] h-[160px]"
+                    src="/assets/img/test-images/old-man.png" alt="">
             </div>
             @if(candidate == null) {
-                <div class="info-user pl-12">
-                    <h2>{{user?.name}}</h2>
-                </div>
+            <div class="info-user pl-12">
+                <h2>{{user?.name}}</h2>
+            </div>
             }
             @if(candidate !== null) {
-                <div class="info-candidate pl-12">
-                    <h2>{{candidate?.name}}</h2>
-                    <p class="text-[#686868]">Candidato a {{candidate?.position?.name}} • {{candidate?.city?.name}}, {{candidate?.state?.uf}}</p>
-                    <p class="text-black font-bold pb-8">"{{candidate?.experience}}"</p>
-                    <p class="text-[#4D4D4D]">200.000 seguidores</p>
-                </div>
+            <div class="info-candidate pl-8">
+                <h2>{{candidate?.name}}</h2>
+                <p class="text-[#686868]">Candidato a {{candidate?.position?.name}} • {{candidate?.city?.name}},
+                    {{candidate?.state?.uf}}</p>
+                <p class="text-black font-bold pb-8">"{{candidate?.experience}}"</p>
+                <p class="text-[#4D4D4D]">200.000 seguidores</p>
+            </div>
             }
         </div>
     </div>
 
-    <div class="intro bg-white px-8 shadow rounded-lg py-4">
-        <h1>Biografia</h1>
+    <div class="intro bg-white px-6 py-6 shadow rounded-lg">
+        <div class="card-header flex justify-between">
+            <h1>Biografia</h1>
+            <button mat-icon-button aria-label="Edit">
+                <mat-icon fontSet="material-icons-outlined">edit_square</mat-icon>
+            </button>
+        </div>
         <p class="pt-2">{{candidate?.biography}}</p>
     </div>
 
-    <div class="intro bg-white px-8 shadow rounded-lg py-4">
-        <h1>Áreas de Atuação</h1>
+    <div class="intro bg-white px-6 py-6 shadow rounded-lg">
+        <div class="card-header flex justify-between">
+            <h1>Área de Atuação</h1>
+            <button mat-icon-button aria-label="Edit">
+                <mat-icon fontSet="material-icons-outlined">edit_square</mat-icon>
+            </button>
+        </div>
         <p class="pt-2">Sem Áreas de Atuação no momento...</p>
     </div>
 
-    <div class="intro bg-white px-8 shadow rounded-lg py-4">
-        <h1>Posições sobre Questões Políticas Atuais</h1>
+    <div class="intro bg-white px-6 py-6 shadow rounded-lg">
+        <div class="card-header flex justify-between">
+            <h1>Posições sobre Questões Políticas Atuais</h1>
+            <button mat-icon-button aria-label="Edit">
+                <mat-icon fontSet="material-icons-outlined">edit_square</mat-icon>
+            </button>
+        </div>
         <p class="pt-2">Sem Posições sobre Questões Políticas Atuais no momento...</p>
     </div>
 
-    <div class="intro bg-white px-8 shadow rounded-lg py-4">
-        <h1>Propostas e Planos de Governo</h1>
+    <div class="intro bg-white px-6 py-6 shadow rounded-lg">
+        <div class="card-header flex justify-between">
+            <h1>Propostas e Planos de Governo</h1>
+            <button mat-icon-button aria-label="Edit">
+                <mat-icon fontSet="material-icons-outlined">edit_square</mat-icon>
+            </button>
+        </div>
         <p class="pt-2">Sem Propostas e Planos de Governo no momento...</p>
     </div>
 
-    <div class="intro bg-white px-8 shadow rounded-lg py-4">
-        <h1>Realizações e Projetos Significativos</h1>
+    <div class="intro bg-white px-6 py-6 shadow rounded-lg">
+        <div class="card-header flex justify-between">
+            <h1>Realizações e Projetos Significativos</h1>
+            <button mat-icon-button aria-label="Edit">
+                <mat-icon fontSet="material-icons-outlined">edit_square</mat-icon>
+            </button>
+        </div>
         <p class="pt-2">Sem Realizações e Projetos Significativos no momento...</p>
     </div>
 </main>

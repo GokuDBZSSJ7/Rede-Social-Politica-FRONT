@@ -24,14 +24,14 @@
                (click)="openAddPostModal()">
                <mat-icon
                   style="width: 32px !important; height: 32px !important; font-size: 32px;">edit_square</mat-icon>
-               <p class="text-base">Iniciar postagem</p>
+               <p class="text-base">Criar postagem</p>
             </button>
          </div>
          }
 
          <!-- Post 1 -->
          @for(post of posts; track post) {
-         <div class="post bg-white shadow rounded-lg p-4 mb-3">
+         <div class="post bg-white shadow rounded-lg p-4">
             <div class="user flex">
                <div class="user-picture me-2 pb-3">
                   <img src="/assets/img/test-images/old-man.png" alt="Profile Picture"
@@ -50,19 +50,19 @@
                   <!-- <button class="font-medium text-blue-800 hover:text-blue-900">ver mais</button> -->
                </p>
             </div>
-
-            <div class="post-midia">
-               <img [src]="post.image_url ? post.image_url : 'https://via.placeholder.com/600x390'" alt="Post Image"
-                  class="w-full my-3">
+            @if (post.image_url !== "null") {
+            <div class="post-midia pt-3">
+               <img [src]="post.image_url" alt="Post Image" class="w-full">
             </div>
-            <div class="flex gap-2 pb-3 text-gray-600">
+            }
+            <div class="flex gap-2 py-3 text-gray-600">
                <div class="likes flex items-center gap-1">
-                  {{post?.likes}} <mat-icon class="mb-1"
+                  {{post?.likes}} <mat-icon class="mb-1 ms-1"
                      style="font-size: 16px; width: 16px; height: 16px;">thumb_up</mat-icon>
                </div>
                •
                <div class="dislikes flex items-center gap-1">
-                  {{post?.dislikes}} <mat-icon class="mb-1"
+                  {{post?.dislikes}} <mat-icon class="mb-1 ms-1"
                      style="font-size: 16px; width: 16px; height: 16px;">thumb_down</mat-icon>
                </div>
                •
