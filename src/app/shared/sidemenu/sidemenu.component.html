@@ -1,13 +1,13 @@
 <mat-menu></mat-menu>
 
-<div class="fuse-vertical-navigation-wrapper sidemenu">
+<div class="fuse-vertical-navigation-wrapper sidemenu flex flex-col justify-between">
    <div class="flex items-center justify-center w-full p-3">
       <div class="">
          <h1 class="m-0 py-3" style="margin: 0;">System</h1>
       </div>
    </div>
 
-   <div class="pb-5">
+   <div>
       @for (menu of menus; track menu) {
       <div class="mt-2">
          <div class="mx-2.5">
@@ -23,7 +23,7 @@
          </div>
       </div>
 
-      <div style="margin: 0 10px 4px 10px; font-size: 16px;">
+      <div style="margin: 0 10px 4px 10px; font-size: 16px; padding-bottom: 8px;">
          @for (submenu of menu.contentMenus; track submenu) {
          @if (!submenu.handler) {
          <button mat-menu-item [routerLink]="submenu.route" routerLinkActive="active"
@@ -41,11 +41,11 @@
          }
       </div>
       }
+      <mat-divider style="width: 230px; margin: 0 auto !important; border-top-color: #C6C6C6 !important;"></mat-divider>
    </div>
 
-   <mat-divider style="width: 230px; margin: 0 auto !important; border-top-color: #C6C6C6 !important;"></mat-divider>
 
-   <div class="profile-data py-5 px-4" style="margin: 0 10px">
+   <div class="profile-data py-3 px-4" style="margin: 0 10px">
       <div class="flex justify-between">
          <div class="left-align flex">
             <img src="/assets/img/test-images/old-man.png" alt="Profile Picture"

@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { CandidatesService } from '../../../services/candidates.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-my-user',
   standalone: true,
-  imports: [],
+  imports: [
+    MatIconModule,
+  ],
   templateUrl: './my-user.component.html',
   styleUrl: './my-user.component.scss'
 })
