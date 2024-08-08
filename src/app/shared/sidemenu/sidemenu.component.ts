@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry, MatIconModule } from '@angular/material/icon';
+import { CandidatesService } from '../../services/candidates.service';
 
 const DASHBOARD_ICON =
   `
@@ -92,6 +93,8 @@ const LOGOUT_ICON =
   styleUrl: './sidemenu.component.scss'
 })
 export class SidemenuComponent implements OnInit {
+  user: any = this.authService.getUser();
+  candidate: any;
   menus: any[] = [{
     title: 'Módulos Gerais',
     contentMenus: [
@@ -174,7 +177,8 @@ export class SidemenuComponent implements OnInit {
   constructor(
     private authService: AuthService,
     iconRegistry: MatIconRegistry,
-    sanitizer: DomSanitizer
+    sanitizer: DomSanitizer,
+    private candidateService: CandidatesService
   ) {
     iconRegistry.addSvgIconLiteral('dashboard_icon', sanitizer.bypassSecurityTrustHtml(DASHBOARD_ICON));
     iconRegistry.addSvgIconLiteral('feed_icon', sanitizer.bypassSecurityTrustHtml(FEED_ICON));
@@ -187,10 +191,20 @@ export class SidemenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.getCandidate();
+    console.log(this.user)
   }
-
+  
   logout() {
     this.authService.logout();
+  }
+  
+  getCandidate() {
+    this.candidateService.getCandidateByUserId(this.user.id).subscribe({
+      next: (res) => {
+        this.candidate = res
+        console.log(this.candidate)
+      }
+    })
   }
 }

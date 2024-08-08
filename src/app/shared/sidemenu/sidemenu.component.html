@@ -44,15 +44,14 @@
       <mat-divider style="width: 230px; margin: 0 auto !important; border-top-color: #C6C6C6 !important;"></mat-divider>
    </div>
 
-
    <div class="profile-data py-3 px-4" style="margin: 0 10px">
       <div class="flex justify-between">
          <div class="left-align flex">
             <img src="/assets/img/test-images/old-man.png" alt="Profile Picture"
                class="w-12 h-12 rounded-full object-cover object-center border-[2px] border-gray-300">
             <div class="flex flex-col justify-evenly ps-2">
-               <span class="name font-bold" style="font-size: 16px;">Luan Garcia</span>
-               <span class="position text-gray-500" style="font-size: 14px;">Governador</span>
+               <span class="name font-bold truncate" style="font-size: 13px; width: 110px;">{{candidate?.name}}</span>
+               <span class="position text-gray-500" style="font-size: 12px;">{{candidate?.position?.name}}</span>
             </div>
          </div>
          <div class="right-align">
