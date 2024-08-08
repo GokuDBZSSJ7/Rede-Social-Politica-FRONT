@@ -1,9 +1,6 @@
 <main class="container mx-auto px-8 py-8">
     <div class="flex flex-wrap items-center justify-between">
-        <h1>Partidos</h1>
-        <button
-            class="border-[2px] border-[#1B4588] text-[#1B4588] px-6 py-2 rounded-lg hover:bg-[#1B4588] hover:text-white"
-            [routerLink]="['/parties-creation']" routerLinkActive="router-link-active">Novo Partido</button>
+        <h1>Candidatos</h1>
     </div>
 
     <div class="filter grid grid-cols-12 mt-7 container gap-5">
@@ -64,27 +61,35 @@
             </td>
         </ng-container>
 
-        <!-- Acronym Column -->
-        <ng-container matColumnDef="acronym">
-            <th mat-header-cell *matHeaderCellDef> Acrônimo </th>
+        <!-- Age Column -->
+        <ng-container matColumnDef="age">
+            <th mat-header-cell *matHeaderCellDef> Idade </th>
             <td mat-cell *matCellDef="let item">
-                <span>{{item.acronym}}</span>
+                <span>{{item.age}} anos</span>
             </td>
         </ng-container>
 
-        <!-- Founding Date Column -->
-        <ng-container matColumnDef="founding_date">
-            <th mat-header-cell *matHeaderCellDef> Data de Fundação </th>
+        <!-- Party Column -->
+        <ng-container matColumnDef="party">
+            <th mat-header-cell *matHeaderCellDef> Partido </th>
             <td mat-cell *matCellDef="let item">
-                <span>{{item.founding_date}}</span>
+                <span>{{item?.party.name}}</span>
             </td>
         </ng-container>
 
-        <!-- Founders Column -->
-        <ng-container matColumnDef="founders">
-            <th mat-header-cell *matHeaderCellDef> Fundadores </th>
+        <!-- Electoral Number Column -->
+        <ng-container matColumnDef="electoral_number">
+            <th mat-header-cell *matHeaderCellDef> Nº Eleitoral </th>
+            <td mat-cell *matCellDef="let item" class="text-center">
+                <span>{{item.electoral_number}}</span>
+            </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> Cargo </th>
             <td mat-cell *matCellDef="let item">
-                <span>{{item?.founders}}</span>
+                <span>{{item?.position.name}}</span>
             </td>
         </ng-container>
 
@@ -92,15 +97,39 @@
         <ng-container matColumnDef="city_uf">
             <th mat-header-cell *matHeaderCellDef> Cidade / Estado </th>
             <td mat-cell *matCellDef="let item">
-                <span>{{item?.city?.name}}, {{item?.state?.uf}}</span>
+                <span>{{item?.city.name}}, {{item?.state.uf}}</span>
             </td>
         </ng-container>
 
-        <!-- Statute Column -->
-        <ng-container matColumnDef="statute">
-            <th mat-header-cell *matHeaderCellDef> Estatuto </th>
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
             <td mat-cell *matCellDef="let item">
-                <span class="nome">{{item.statute}}</span>
+                <span class="nome">{{item.status}}</span>
+            </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Ações </th>
+            <td mat-cell *matCellDef="let actions">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <!-- <button mat-menu-item [routerLink]="['/occurrences', actions.id]">
+                    <mat-icon>edit</mat-icon>
+                    <span>Editar</span>
+                 </button> -->
+                    <button mat-menu-item (click)="approveCandidate(actions)">
+                        <mat-icon>check</mat-icon>
+                        <span>Aprovar</span>
+                    </button>
+                    <!-- <button mat-menu-item (click)="delete(actions)">
+                    <mat-icon>delete</mat-icon>
+                    <span>Excluir</span>
+                 </button> -->
+                </mat-menu>
             </td>
         </ng-container>
 
