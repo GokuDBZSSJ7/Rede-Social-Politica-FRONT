@@ -12,6 +12,7 @@ import { PartiesFormComponent } from './pages/logged/parties/parties-form/partie
 import { PositionsComponent } from './pages/logged/positions/positions.component';
 import { PositionsFormComponent } from './pages/logged/positions/positions-form/positions-form.component';
 import { MyUserComponent } from './pages/logged/my-user/my-user.component';
+import { ApproveCandidatesComponent } from './pages/logged/approve-candidates/approve-candidates.component';
 
 export const routes: Routes = [
    {
@@ -59,6 +60,10 @@ export const routes: Routes = [
          {
             path: 'my-user',
             component: MyUserComponent
+         },
+         {
+            path: 'approve-candidates',
+            component: ApproveCandidatesComponent
          }
       ]
    },

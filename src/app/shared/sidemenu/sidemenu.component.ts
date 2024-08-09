@@ -146,7 +146,7 @@ export class SidemenuComponent implements OnInit {
       {
         label: 'Aprovar Candidato',
         icon: 'check_circle_icon',
-        route: '/'
+        route: '/approve-candidates'
       },
       {
         label: 'Área do Candidato',
@@ -154,7 +154,7 @@ export class SidemenuComponent implements OnInit {
         route: '/'
       }
     ]
-    },
+  },
   ];
   userMenu: any[] = [
     {
