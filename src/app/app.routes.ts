@@ -13,6 +13,7 @@ import { PositionsComponent } from './pages/logged/positions/positions.component
 import { PositionsFormComponent } from './pages/logged/positions/positions-form/positions-form.component';
 import { MyUserComponent } from './pages/logged/my-user/my-user.component';
 import { ApproveCandidatesComponent } from './pages/logged/approve-candidates/approve-candidates.component';
+import { DashboardComponent } from './pages/logged/dashboard/dashboard.component';
 
 export const routes: Routes = [
    {
@@ -25,6 +26,10 @@ export const routes: Routes = [
       component: LoggedComponent,
       canActivate: [AuthGuard],
       children: [
+         {
+            path: 'dashboard',
+            component: DashboardComponent
+         },
          {
             path: 'feed',
             component: FeedComponent
@@ -64,7 +69,7 @@ export const routes: Routes = [
          {
             path: 'approve-candidates',
             component: ApproveCandidatesComponent
-         }
+         },
       ]
    },
    {

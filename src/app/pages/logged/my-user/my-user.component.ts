@@ -2,10 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { CandidatesService } from '../../../services/candidates.service';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDialog } from '@angular/material/dialog';
-import { EditUserModalComponent } from './edit-user-modal/edit-user-modal.component';
-import { EditUserInfoTextModalComponent } from './edit-user-info-text-modal/edit-user-info-text-modal.component';
-import { EditUserInfoListModalComponent } from './edit-user-info-list-modal/edit-user-info-list-modal.component';
 
 @Component({
   selector: 'app-my-user',
@@ -23,7 +19,6 @@ export class MyUserComponent implements OnInit{
   constructor(
     private authService: AuthService,
     private candidateService: CandidatesService,
-    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -40,27 +35,11 @@ export class MyUserComponent implements OnInit{
     })
   }
 
-  editUserModal(item: any) {
-    const dialogRef = this.dialog.open(EditUserModalComponent, {
-      data: item
-    });
-
-    console.log(item)
-  }
-
-  editUserInfoTextModal(item: any) {
-    const dialogRef = this.dialog.open(EditUserInfoTextModalComponent, {
-      data: item
-    });
-
-    console.log(item)
-  }
-
-  editUserInfoListModal(item: any) {
-    const dialogRef = this.dialog.open(EditUserInfoListModalComponent, {
-      data: item
-    });
-
-    console.log(item)
+  listAll() {
+    this.candidateService.list().subscribe({
+      next: res => {
+        this.candidate = res;
+      }
+    })
   }
 }

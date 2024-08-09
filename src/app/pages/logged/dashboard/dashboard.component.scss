@@ -1,0 +1,14 @@
+.card-icon {
+   background-color: #f3f3f3;
+   padding: 16px;
+   border-radius: 24px;
+
+   mat-icon {
+      height: 32px;
+      width: 32px;
+      justify-content: center;   
+      display: flex;
+      align-items: center;
+      font-size: 32px;
+   }
+}

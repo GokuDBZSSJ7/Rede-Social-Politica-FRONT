@@ -101,7 +101,7 @@ export class SidemenuComponent implements OnInit {
       {
         label: 'Dashboard',
         icon: 'dashboard_icon',
-        route: '/'
+        route: '/dashboard'
       },
       {
         label: 'Feed',
