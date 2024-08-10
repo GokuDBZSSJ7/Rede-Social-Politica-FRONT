@@ -36,7 +36,7 @@ export class PartiesFormComponent {
   selectedCityId: any;
   form!: FormGroup;
 
-  user: any;
+  user: any = this.authService.getUser();
 
   constructor(
     private officeService: OfficeService,
@@ -44,6 +44,7 @@ export class PartiesFormComponent {
     private cityService: CityService,
     private stateService: StateService,
     private fb: FormBuilder,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -61,6 +62,7 @@ export class PartiesFormComponent {
       statute: [null, [Validators.required]],
       city_id: [this.selectedCityId, [Validators.required]],
       state_id: [this.selectedStateId, [Validators.required]],
+      user_id: [this.user.id]
     });
   }
 

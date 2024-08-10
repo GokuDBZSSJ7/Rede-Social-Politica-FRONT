@@ -85,6 +85,7 @@ export class FeedComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.posts = result;
+        this.listPosts();
       }
     });
   }
