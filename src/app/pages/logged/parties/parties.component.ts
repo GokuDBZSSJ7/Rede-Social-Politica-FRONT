@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { StateService } from '../../../services/state.service';
 import { CityService } from '../../../services/city.service';
 import { PartyService } from '../../../services/party.service';
@@ -16,6 +17,7 @@ import { MatPaginator } from '@angular/material/paginator';
   selector: 'app-parties',
   standalone: true,
   imports: [
+    CommonModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,

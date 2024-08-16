@@ -2,12 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { CandidatesService } from '../../../services/candidates.service';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-my-user',
   standalone: true,
   imports: [
     MatIconModule,
+    MatTooltipModule,
+    RouterModule,
   ],
   templateUrl: './my-user.component.html',
   styleUrl: './my-user.component.scss'

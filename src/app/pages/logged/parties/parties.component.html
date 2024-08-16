@@ -76,7 +76,7 @@
         <ng-container matColumnDef="founding_date">
             <th mat-header-cell *matHeaderCellDef> Data de Fundação </th>
             <td mat-cell *matCellDef="let item">
-                <span>{{item.founding_date}}</span>
+                <span>{{item.founding_date | date: 'dd/MM/yyyy'}}</span>
             </td>
         </ng-container>
 
@@ -92,7 +92,9 @@
         <ng-container matColumnDef="city_uf">
             <th mat-header-cell *matHeaderCellDef> Cidade / Estado </th>
             <td mat-cell *matCellDef="let item">
+                @if (item.city && item.state) {
                 <span>{{item?.city?.name}}, {{item?.state?.uf}}</span>
+                }
             </td>
         </ng-container>
 

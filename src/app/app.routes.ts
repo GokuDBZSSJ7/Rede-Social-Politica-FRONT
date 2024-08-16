@@ -14,6 +14,7 @@ import { PositionsFormComponent } from './pages/logged/positions/positions-form/
 import { MyUserComponent } from './pages/logged/my-user/my-user.component';
 import { ApproveCandidatesComponent } from './pages/logged/approve-candidates/approve-candidates.component';
 import { DashboardComponent } from './pages/logged/dashboard/dashboard.component';
+import { EditProfileComponent } from './pages/logged/edit-profile/edit-profile.component';
 
 export const routes: Routes = [
    {
@@ -70,6 +71,10 @@ export const routes: Routes = [
             path: 'approve-candidates',
             component: ApproveCandidatesComponent
          },
+         {
+            path: 'edit-profile',
+            component: EditProfileComponent
+         }
       ]
    },
    {

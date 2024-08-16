@@ -22,7 +22,7 @@ import Swal from 'sweetalert2';
     MatCheckboxModule,
     ReactiveFormsModule,
     RouterModule,
-    SidemenuComponent
+    SidemenuComponent,
   ],
   providers: [AuthService],
   templateUrl: './login.component.html',
